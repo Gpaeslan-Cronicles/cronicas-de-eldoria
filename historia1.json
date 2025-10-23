@@ -41,7 +41,18 @@
                 {
                     "texto": "[Round-Robin] Atacar as linhas de suprimento dos Barões, enfraquecendo todos os processos filhos um pouco de cada vez.",
                     "destino": 30
+                },
+                {
+                    "texto": "Ignorar o plano e ir beber na taverna.",
+                    "destino": 4
                 }
+            ]
+        },
+        {
+            "id": 4,
+            "texto": "Vocês decidem que a crise do reino pode esperar. A taverna 'O Javali Sedento' parece muito mais convidativa. O hidromel é excelente e as canções são cativantes. Vocês bebem, cantam e contam histórias de glórias passadas. É a melhor noite de suas vidas. Tão boa, na verdade, que vocês nem percebem os gritos do lado de fora quando a tempestade arcana finalmente consome a capital.",
+            "opcoes": [
+                { "texto": "Um último brinde...", "destino": 99 }
             ]
         },
         {
