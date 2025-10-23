@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forme sua Comitiva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/estilo.css">
+</head>
+<body class="body-dossier">
+
+    <div class="scroll-container">
+        <div class="scroll-content">
+            <header class="scroll-header">
+                <h1 class="game-title-v2">Registro da Comitiva</h1>
+                <p class="subtitle">Nomeie seu grupo e convoque seus heróis.</p>
+            </header>
+            
+            <form action="{{ url_for('iniciar_criacao') }}" method="post" class="form-criacao-v2">
+                <input type="hidden" name="nome_da_historia" value="{{ nome_da_historia }}">
+                <div class="form-grupo-v2">
+                    <label for="party_name">Nome da Comitiva:</label>
+                    <input type="text" id="party_name" name="party_name" placeholder="Ex: Os Matadores de Dragões" required>
+                </div>
+
+                <div class="form-grupo-v2">
+                    <label>Número de Aventureiros:</label>
+                    <div class="player-slots">
+                        <div class="player-slot active" data-count="1">👤</div>
+                        <div class="player-slot" data-count="2">👤</div>
+                        <div class="player-slot" data-count="3">👤</div>
+                        <div class="player-slot" data-count="4">👤</div>
+                    </div>
+                    <input type="hidden" id="num_jogadores" name="num_jogadores" value="1">
+                </div>
+                
+                <button type="submit" class="botao-iniciar-v2">Forjar Aliança</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slots = document.querySelectorAll('.player-slot');
+            const hiddenInput = document.getElementById('num_jogadores');
+
+            slots.forEach(slot => {
+                slot.addEventListener('click', () => {
+                    const count = parseInt(slot.dataset.count, 10);
+                    hiddenInput.value = count; // Atualiza o valor escondido
+
+                    // Atualiza o visual de todos os slots
+                    slots.forEach(s => {
+                        const sCount = parseInt(s.dataset.count, 10);
+                        if (sCount <= count) {
+                            s.classList.add('active');
+                        } else {
+                            s.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

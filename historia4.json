@@ -1,0 +1,201 @@
+{
+    "metadata": {
+        "identificador": "historia4",
+        "titulo": "Capítulo 4: O Silêncio das Montanhas",
+        "premissa": "A rede de comunicação do reino, baseada em bestas mensageiras e torres de sinalização nas montanhas, emudeceu. As fortalezas anãs nas fronteiras estão isoladas e vulneráveis a um ataque iminente de selvagens do norte. Os jogadores precisam se aventurar pelas passagens perigosas para descobrir a causa do silêncio. Eles devem consertar um complexo artefato anão, aprendendo seus diferentes 'padrões de comando' para reativar a rede e, em uma corrida contra o tempo, usar um observatório arcano para alinhar uma série de lentes de energia em uma sequência otimizada, enviando um alerta massivo antes que a horda ataque."
+    },
+    "paginas": [
+        {
+            "id": 0,
+            "texto": "A General Elara os convoca com uma expressão sombria. 'A Grande Corrente emudeceu,' ela diz, apontando para um mapa das Montanhas Gélidas. 'Nossas torres de sinalização, operadas pelos anões, não respondem há três dias. A Fortaleza de Pedra-Fria está cega, e meus batedores relatam uma horda selvagem se reunindo na fronteira norte. Isso não é uma coincidência. Vocês precisam ir até a montanha e descobrir a causa da falha no sistema de Entrada e Saída de informações. Cada momento de silêncio é um convite ao desastre.'",
+            "opcoes": [
+                { "texto": "Aceitar a missão e partir para as montanhas.", "destino": 1 }
+            ]
+        },
+        {
+            "id": 1,
+            "texto": "A jornada pelas passagens montanhosas é traiçoeira. O vento uiva como um fantasma, e o ar fica mais rarefeito. Após um dia de viagem, vocês se deparam com um abismo profundo, onde uma ponte de pedra anã jaz em pedaços. Do outro lado, o caminho continua. Não há como contornar.",
+            "opcoes": [
+                {
+                    "tipo": "teste",
+                    "texto": "Tentar uma escalada arriscada pela face do penhasco.",
+                    "nome_teste": "Teste de Força (Atletismo)",
+                    "dificuldade": 14,
+                    "destino_sucesso": 2,
+                    "destino_falha": 3
+                },
+                {
+                    "tipo": "teste",
+                    "texto": "Analisar os mecanismos da ponte e tentar uma reativação de emergência.",
+                    "nome_teste": "Teste de Inteligência (Mecanismos)",
+                    "dificuldade": 16,
+                    "destino_sucesso": 4,
+                    "destino_falha": 3
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "texto": "SUCESSO: Com músculos firmes e coragem, vocês encontram apoios na rocha fria e atravessam o abismo. A escalada os deixa cansados, mas seguros do outro lado. Vocês encontram o diário de um engenheiro caído perto da beirada.",
+            "opcoes": [ { "texto": "Ler o diário e continuar.", "destino": 5 } ],
+            "efeitos": { "dano_hp": 1 }
+        },
+        {
+            "id": 3,
+            "texto": "FALHA: A travessia é perigosa demais. Uma pedra se solta, quase causando uma queda fatal. Vocês são forçados a recuar e procurar por horas por um caminho alternativo, muito mais longo e perigoso, que serpenteia por cavernas escuras. A jornada cobra seu preço.",
+            "opcoes": [ { "texto": "Emergir das cavernas e continuar.", "destino": 5 } ],
+            "efeitos": { "dano_hp": 4 }
+        },
+        {
+            "id": 4,
+            "texto": "SUCESSO: Vocês percebem que a ponte não foi destruída, mas desativada. Encontrando o painel de controle, vocês decifram as runas e reativam os glifos de levitação. As pedras se unem novamente, formando uma passagem segura. Perto do painel, vocês encontram um diário.",
+            "opcoes": [ { "texto": "Ler o diário e atravessar a ponte.", "destino": 5 } ]
+        },
+        {
+            "id": 5,
+            "texto": "A última anotação no diário diz: 'O Núcleo de Sinais está sobrecarregado. O fluxo de dados é imenso, e o sistema regrediu para o protocolo de emergência... é lento... ineficiente. Tenho que ficar 'sondando' o status a todo momento. Se ao menos tivéssemos tempo para reconfigurar os padrões de comando... A montanha geme. Algo está errado.'",
+            "opcoes": [ { "texto": "Apressar o passo até a fortaleza.", "destino": 6 } ]
+        },
+        {
+            "id": 6,
+            "texto": "Vocês finalmente chegam à Fortaleza de Pedra-Fria. As portas maciças de bronze estão fechadas, e um silêncio mortal paira no ar. Uma pequena grade de comunicação ao lado da porta parece ser a única forma de interagir. Não há resposta aos seus chamados.",
+            "opcoes": [
+                {
+                    "tipo": "teste",
+                    "texto": "Tentar arrombar a porta com força bruta.",
+                    "nome_teste": "Teste de Força",
+                    "dificuldade": 19,
+                    "destino_sucesso": 8,
+                    "destino_falha": 7
+                },
+                {
+                    "texto": "Examinar a grade de comunicação em busca de um padrão.",
+                    "destino": 9
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "texto": "FALHA: A porta nem sequer range. É uma obra-prima anã, imune à força bruta. O barulho, no entanto, parece ter chamado a atenção de algo nas sombras da montanha.",
+            "opcoes": [ { "texto": "Precisamos de um plano mais sutil.", "destino": 9 } ]
+        },
+        {
+            "id": 8,
+            "texto": "SUCESSO: Com um esforço monumental, vocês conseguem forçar uma das dobradiças. A porta se abre com um gemido metálico, revelando o interior escuro da fortaleza.",
+            "opcoes": [ { "texto": "Entrar na fortaleza.", "destino": 10 } ]
+        },
+        {
+            "id": 9,
+            "texto": "Vocês notam um padrão de runas ao redor da grade. Parece um protocolo de 'requisição-confirmação'. Vocês batem um ritmo específico (requisição) e, após uma pausa, um mecanismo interno responde com uma luz (confirmação). Replicando o padrão, as travas da porta se soltam com um clique satisfatório.",
+            "opcoes": [ { "texto": "Entrar na fortaleza.", "destino": 10 } ]
+        },
+        {
+            "id": 10,
+            "texto": "O interior é um caos de ferramentas espalhadas e cristais que ciciam com energia instável. No centro da sala de comando, um enorme artefato de bronze pulsa com uma luz doentia. Um anão idoso, Baelin, está acorrentado a uma cadeira, forçado a puxar uma série de alavancas repetidamente. 'É um loop infinito!', ele grita, exausto. 'Tenho que 'sondar' o status de cada relé, ou tudo explode! É o método de I/O mais primitivo que existe!'",
+            "opcoes": [
+                { "tipo": "teste", "texto": "Assumir o posto de Baelin para estabilizar o Núcleo.", "nome_teste": "Teste de Constituição", "dificuldade": 16, "destino_sucesso": 11, "destino_falha": 11 }
+            ]
+        },
+        {
+            "id": 11,
+            "texto": "Vocês libertam Baelin e se revezam na tarefa exaustiva. É um trabalho brutal e repetitivo, mas vocês conseguem estabilizar o Núcleo o suficiente para que Baelin possa pensar. 'Obrigado,' ele ofega. 'Este método de 'Sondagem' é um desperdício de recursos! Preciso encontrar o esquema do 'Sinalizador de Prontidão'. Ele nos 'interrompe' apenas quando é necessário! Procurem por ele!'",
+            "opcoes": [ { "texto": "Procurar pelos esquemas.", "destino": 12 } ]
+        },
+        {
+            "id": 12,
+            "texto": "Vocês encontram os esquemas sob uma pilha de escombros. Baelin os analisa. 'Sim! Com este mecanismo de 'Interrupção', o Núcleo nos avisará quando estiver pronto, liberando-nos para outras tarefas. Mas a instalação é delicada.'",
+            "opcoes": [
+                { "tipo": "teste", "texto": "Instalar o mecanismo de Interrupção.", "nome_teste": "Teste de Destreza (Mecanismos)", "dificuldade": 15, "destino_sucesso": 13, "destino_falha": 14 }
+            ]
+        },
+        {
+            "id": 13,
+            "texto": "SUCESSO: Com mãos precisas, vocês instalam o componente. O som caótico da sala cessa, substituído por um sino de cristal suave que toca quando um sinal está pronto. O alívio é imenso. Contudo, a restauração parcial de energia parece ter despertado algo. Um zumbido baixo e dissonante preenche a sala.",
+            "opcoes": [ { "texto": "O que é esse som?", "destino": 15 } ]
+        },
+        {
+            "id": 14,
+            "texto": "FALHA: Uma conexão errada causa um curto-circuito. O mecanismo queima. 'Maldição!' rosna Baelin. 'Mas a sobrecarga revelou algo... uma câmara oculta atrás da parede!' O zumbido dissonante aumenta de volume, vindo da câmara.",
+            "opcoes": [ { "texto": "Investigar a câmara.", "destino": 15 } ]
+        },
+        {
+            "id": 15,
+            "tipo": "combate",
+            "texto_pre_combate": "Das sombras da câmara ou do próprio ar, uma criatura se materializa. É um ser feito de estática, dados corrompidos e som, um 'Eco da Estática', atraído pela energia do Núcleo. Ele bloqueia o caminho para a câmara mais interna!",
+            "inimigos": [ { "id_inimigo": "elemental_tempestade", "nome_unico": "Eco da Estática" } ],
+            "destino_vitoria": 16,
+            "destino_derrota": 99
+        },
+        {
+            "id": 16,
+            "texto": "Com a criatura desfeita em um chiado final, vocês entram na câmara que ela guardava. No centro de um pedestal, uma única e poderosa runa brilha: a 'Runa de Acesso Direto à Memória'. Baelin fica boquiaberto. 'A lenda é real! Com a DMA, o transmissor acessa os dados diretamente, sem minha intervenção! A transferência será instantânea! É nossa única chance de enviar o alerta a tempo!'",
+            "opcoes": [ { "tipo": "teste", "texto": "Ativar a Runa DMA.", "nome_teste": "Teste de Inteligência (Arcanismo)", "dificuldade": 18, "destino_sucesso": 17, "destino_falha": 18 } ]
+        },
+        {
+            "id": 17,
+            "texto": "SUCESSO: A runa absorve sua energia e se integra ao Núcleo. O artefato brilha com um poder branco e puro, sua operação agora perfeita e otimizada. 'CONSEGUIMOS!' grita Baelin. 'Corram para o Observatório Olho-Distante, no pico! É a única lente poderosa o suficiente para enviar a mensagem! Eu monitoro daqui!'",
+            "opcoes": [ { "texto": "Correr para o observatório!", "destino": 20 } ]
+        },
+        {
+            "id": 18,
+            "texto": "FALHA: A energia da runa é instável e ela racha, liberando uma onda de choque. O Núcleo ainda funciona, mas não em sua capacidade máxima. 'Não está perfeito, mas terá que servir!' diz Baelin. 'Corram para o observatório! Não temos mais tempo!'",
+            "opcoes": [ { "texto": "Correr para o observatório!", "destino": 20 } ]
+        },
+        {
+            "id": 20,
+            "texto": "O topo da montanha é uma plataforma sob um céu estrelado. Um enorme telescópio arcano aponta para o horizonte. Baelin contata vocês por uma pedra vidente: 'A Horda se move! Teremos apenas UMA chance! O Foco Arcantril, nosso 'braço de disco', está na posição 53. Vocês precisam alinhar as lentes nas seguintes coordenadas rúnicas: 98, 183, 37, 122, 14, 124, 65, 67. Cada padrão de alinhamento consome tempo. A horda chega em 5 unidades de tempo! Escolham com sabedoria!'",
+            "opcoes": [
+                { "texto": "[Algoritmo FCFS] Seguir a ordem exata em que as requisições chegaram.", "destino": 21 },
+                { "texto": "[Algoritmo SSTF] A partir da posição atual, sempre alinhar a lente mais próxima.", "destino": 22 },
+                { "texto": "[Algoritmo SCAN] Varrer o céu de uma ponta a outra, como um elevador.", "destino": 23 },
+                { "texto": "[Algoritmo C-LOOK] Varrer o céu até a última lente e reiniciar, o método mais otimizado.", "destino": 24 }
+            ]
+        },
+        {
+            "id": 21,
+            "texto": "Vocês seguem a lista à risca. O Foco salta descontroladamente: 53 -> 98 -> 183 -> 37 -> 122 -> 14 -> 124 -> 65 -> 67. O movimento é longo, caótico e ineficiente, como um vaga-lume bêbado. 'Tempo consumido: 3 unidades! É lento demais! Eles já romperam a primeira defesa!', grita Baelin pela pedra.",
+            "opcoes": [ { "texto": "Falhamos...", "destino": 25 } ]
+        },
+        {
+            "id": 22,
+            "texto": "Vocês escolhem a lente mais próxima a cada passo. O movimento é mais eficiente, mas errático: 53 -> 65 -> 67 -> 37 -> 14 -> 98 -> 122 -> 124 -> 183. O Foco age como um colibri frenético, mas o salto final de 14 para 98 custa caro. 'Tempo consumido: 2 unidades! Ganhamos tempo, mas não o suficiente! Eles estão nos portões!', lamenta Baelin.",
+            "opcoes": [ { "texto": "Falhamos...", "destino": 25 } ]
+        },
+        {
+            "id": 23,
+            "texto": "Vocês decidem varrer o céu. O Foco se move suavemente em uma direção, alinhando as lentes, e depois volta: 53 -> 37 -> 14, depois reverte, 65 -> 67 -> 98 -> 122 -> 124 -> 183. O movimento é elegante, mas ir até a borda '0' antes de voltar desperdiçou um momento. 'Tempo consumido: 2 unidades! Tão perto! Eles estão invadindo o pátio!'",
+            "opcoes": [ { "texto": "Falhamos...", "destino": 25 } ]
+        },
+        {
+            "id": 24,
+            "texto": "Vocês usam o padrão mais lógico, varrendo o céu apenas até as últimas lentes necessárias e reiniciando. A sequência é perfeita: 53 -> 65 -> 67 -> 98 -> 122 -> 124 -> 183, um salto rápido de volta para 14, e então -> 37. É a síntese da velocidade e eficiência, sem um único movimento desperdiçado. 'Tempo consumido: 1 unidade! PERFEITO!', Baelin comemora. 'O sinal foi enviado com força total!'",
+            "opcoes": [ { "texto": "Vitória!", "destino": 26 } ]
+        },
+        {
+            "id": 25,
+            "texto": "O tempo se esgotou. Antes que o alinhamento seja concluído, a pedra vidente mostra a imagem do portão da fortaleza sendo estilhaçado. O grito de Baelin é cortado. O silêncio retorna à montanha, desta vez, para sempre.",
+            "opcoes": [ { "texto": "Não...", "destino": 99 } ]
+        },
+        {
+            "id": 26,
+            "texto": "Um feixe de pura luz azul-celeste dispara do observatório, cortando o céu e se refratando em uma dúzia de outros picos, que por sua vez retransmitem o sinal. A Grande Corrente canta novamente. No vale, vocês veem a horda selvagem parar, confusa, enquanto as defesas do reino se iluminam à distância. A Fortaleza de Pedra-Fria está salva, graças à sua lógica e rapidez.",
+            "opcoes": [ { "texto": "Missão cumprida.", "destino": 52 } ]
+        },
+        {
+            "id": 52,
+            "texto": "De volta à capital, vocês são recebidos como os 'Restauradores da Corrente'. A General Elara e o Rei Theron agradecem por terem consertado o sistema nervoso do reino. Baelin, o engenheiro anão, envia a vocês um presente: ferramentas de precisão magistrais e uma promessa de cerveja anã por toda a vida. A Trama está um pouco mais segura, mas a ameaça do Desvanecer ainda paira. FIM DO CAPÍTULO.",
+            "opcoes": [],
+            "unlocks": "historia5"
+        },
+        {
+            "id": 99,
+            "texto": "A realidade se desfaz ao seu redor. A falha em comunicar o perigo condenou milhares de vidas. O peso do seu fracasso é uma fratura na Trama, e suas existências são apagadas pela estática de um sistema que entrou em colapso. FIM DA LINHA.",
+            "opcoes": [
+                { 
+            "tipo": "redirect_menu", 
+            "texto": "Voltar à Seleção de Histórias" 
+        }
+            ]
+        }
+    ]
+}

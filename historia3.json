@@ -1,0 +1,224 @@
+{
+    "metadata": {
+        "identificador": "historia3",
+        "titulo": "Capítulo 3: O Jardim de Cicatrizes",
+        "premissa": "Uma antiga e fértil região, abençoada por um poder celestial, está sendo consumida por uma corrupção que deixa cicatrizes de terra morta no solo, que se espalham e fragmentam as áreas de vida. Os heróis recebem 'Sementes de Luz', capazes de purificar a terra, mas elas só germinam em áreas contínuas e saudáveis. A missão é uma campanha para curar a paisagem, expurgando a corrupção de forma estratégica para criar 'clareiras' grandes o suficiente para que as sementes mais poderosas possam ser plantadas, restaurando a vida ao vale."
+    },
+    "paginas": [
+        {
+            "id": 0,
+            "texto": "Seguindo a orientação de Kael, a jornada os leva aos Vales Esmeralda. A visão que os recebe é uma pintura de desolação. Onde as lendas descreviam um oceano de vida verdejante, vocês encontram um 'disco' de terra doente e rachado. 'Cicatrizes' de solo negro e sem vida se espalham como veias necróticas, dividindo a paisagem em pequenas 'ilhas' de vegetação vibrante. O silêncio é pesado, quebrado apenas pelo assobio do vento sobre a terra morta.",
+            "opcoes": [
+                { "texto": "Avançar com cautela para a maior ilha de vida.", "destino": 1 }
+            ]
+        },
+        {
+            "id": 1,
+            "texto": "No coração da maior clareira, uma figura encapuzada cuida de uma única flor luminosa. É Rhiannon, a Guardiã do Jardim. Seus olhos, ao se virarem para vocês, são antigos como as montanhas. 'Despertos,' ela diz, sua voz um sussurro. 'Vocês sentem. A estrutura de alocação de vida deste vale foi corrompida. O espaço ocupado pela corrupção cresce a cada ciclo, e os espaços livres restantes estão terrivelmente fragmentados. Logo, não haverá mais um bloco contíguo grande o suficiente para sustentar a vida complexa.'",
+            "opcoes": [
+                { "texto": "Perguntar sobre a origem da corrupção.", "destino": 2 },
+                { "texto": "Perguntar como podem ajudar.", "destino": 3 }
+            ]
+        },
+        {
+            "id": 2,
+            "texto": "'A corrupção é um 'arquivo' que não deveria existir. Um parasita,' explica Rhiannon. 'Ele se escreve nos blocos de terra, consumindo a vida e se replicando. Pior, ele não se importa com a ordem. Ele se espalha por qualquer espaço livre que encontra, não importa o quão pequeno, deixando o sistema inteiro em um estado de caos fragmentado.'",
+            "opcoes": [
+                { "texto": "Entendido. Como lutamos contra isso?", "destino": 3 }
+            ]
+        },
+        {
+            "id": 3,
+            "texto": "Rhiannon revela sementes que pulsam com luz. 'A cura. Estas Sementes de Luz podem 'deletar' a corrupção, liberando o espaço que ela ocupa. Mas a Trama, a lei fundamental, exige uma regra: uma semente precisa ser plantada em espaço livre para poder crescer e limpar o espaço ocupado adjacente. E para a Semente-Coração, que pode curar o vale inteiro, precisamos de um 'bloco de espaço livre contíguo' de tamanho imenso. Sua tarefa não é apenas deletar arquivos; é gerenciar o espaço para criar essa clareira.'",
+            "opcoes": [
+                { "texto": "Analisar o mapa do vale para traçar uma estratégia.", "destino": 4 }
+            ]
+        },
+        {
+            "id": 4,
+            "texto": "O mapa místico de Rhiannon mostra o 'bitmap' do vale. Ilhas verdes (espaço livre) e cicatrizes negras (espaço ocupado). 'Cada cicatriz é um bloco de dados corrompidos, guardado por manifestações físicas. Para liberar o espaço, vocês precisam destruir os guardiões. Onde começarão a desfragmentação?'",
+            "opcoes": [
+                { "texto": "[Estratégia 1] Os Campos Afundados: Poucos 'arquivos' grandes.", "destino": 10 },
+                { "texto": "[Estratégia 2] O Bosque Sussurrante: Muitos 'arquivos' pequenos.", "destino": 20 },
+                { "texto": "[Estratégia 3] O Rio de Cristal: O 'índice' do sistema.", "destino": 30 }
+            ]
+        },
+        {
+            "id": 10,
+            "texto": "Os Campos Afundados são uma vasta planície. A corrupção aqui tomou a forma de duas cicatrizes gigantescas que isolam três grandes ilhas de vida. É como um disco com apenas dois arquivos enormes ocupando espaço. 'Liberar qualquer um desses blocos criaria muito espaço livre,' observa Rhiannon. 'Mas a localização importa. A ordem da deleção é crucial para a desfragmentação.'",
+            "opcoes": [
+                { "texto": "Investigar a Cicatriz Central.", "destino": 11 },
+                { "texto": "Investigar a Cicatriz da Borda.", "destino": 12 }
+            ]
+        },
+        {
+            "id": 11,
+            "texto": "A Cicatriz Central é um abismo pulsante que separa as três ilhas de vida. A corrupção aqui é antiga e poderosa. 'Este é o 'arquivo' mais antigo e maior,' diz Rhiannon. 'Se o deletarem, os três espaços livres se tornarão um só. É a manobra mais eficiente para criar uma área contígua.'",
+            "opcoes": [
+                { "texto": "Enfrentar o guardião da Cicatriz Central.", "destino": 13 }
+            ]
+        },
+        {
+            "id": 12,
+            "texto": "A Cicatriz da Borda é uma mancha negra que consome a borda leste do vale. 'Deletar este arquivo liberará muito espaço,' diz Rhiannon. 'Mas este espaço estará isolado na borda do disco. As outras ilhas de vida permanecerão separadas. É uma vitória, mas não uma que nos aproxima do nosso objetivo final.'",
+            "opcoes": [
+                { "texto": "É ineficiente. Vamos focar na Cicatriz Central.", "destino": 11 },
+                { "texto": "Ainda assim, vamos limpá-la primeiro.", "destino": 14 }
+            ]
+        },
+        {
+            "id": 13,
+            "texto": "A terra morta da Cicatriz Central ferve e dela se ergue um Golem de Terra Pútrida, uma montanha de rocha e agonia. 'O guardião de um 'arquivo' grande e profundamente corrompido,' alerta Rhiannon. 'Sua destruição é a chave!'",
+            "opcoes": [
+                { 
+                    "tipo": "combate", "texto": "Lutar contra o Golem!",
+                    "inimigos": {
+                        "inimigos_lista": ["golem_putrido"],
+                        "destino_vitoria": 15, "destino_derrota": 99
+                    }
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "texto": "A batalha na Borda é árdua, mas vocês prevalecem. Uma enorme área de terra é purificada. No entanto, como Rhiannon previu, a grande clareira que vocês criaram está isolada. Vocês aprenderam uma lição valiosa sobre gerenciamento de espaço: nem todo espaço livre é igualmente útil.",
+             "opcoes": [
+                { "texto": "Entendido. Atacar a Cicatriz Central agora.", "destino": 13 }
+            ]
+        },
+        {
+            "id": 15,
+            "texto": "Com o Golem derrotado, a cicatriz central se desfaz em pó fértil. As três ilhas de vida agora estão conectadas, formando uma clareira imensa e contígua. 'Perfeito!', diz Rhiannon. 'Ao deletar o arquivo que estava 'no meio', vocês fundiram múltiplos blocos de espaço livre. A lição: a ordem da deleção é crucial para a desfragmentação.'",
+            "opcoes": [
+                { "texto": "Missão nos Campos cumprida. Voltar ao mapa estratégico.", "destino": 41 }
+            ]
+        },
+        {
+            "id": 20,
+            "texto": "O Bosque Sussurrante é um labirinto denso. A corrupção aqui é como a poeira, preenchendo cada espaço disponível. Dezenas de pequenas cicatrizes isolam cada árvore ancestral. 'O disco aqui está extremamente fragmentado,' diz Rhiannon. 'Muitos arquivos pequenos. Para criar um espaço útil, não basta apagar um. Vocês precisam apagar vários, em sequência, um ao lado do outro.'",
+            "opcoes": [
+                { "texto": "Começar a limpeza sequencial pela borda.", "destino": 21 },
+                { "texto": "Tentar limpar uma cicatriz aleatória no centro.", "destino": 22 }
+            ]
+        },
+        {
+            "id": 21,
+            "texto": "Vocês seguem uma estratégia metódica. Plantam uma Semente de Luz na borda e a usam para purificar a primeira cicatriz adjacente. A luta contra os Espinhos Fragmentados é rápida. Vocês repetem o processo, limpando cicatriz por cicatriz, abrindo um caminho contíguo através da floresta.",
+            "opcoes": [
+                 { 
+                    "tipo": "combate", "texto": "Limpar o primeiro bloco (Batalha 1 de 3).",
+                    "inimigos": {
+                        "inimigos_lista": ["espinho_fragmentado", "espinho_fragmentado"],
+                        "destino_vitoria": 23, "destino_derrota": 99
+                    }
+                }
+            ]
+        },
+        {
+            "id": 22,
+            "texto": "Vocês limpam uma cicatriz no fundo do bosque. O espaço está livre, mas completamente cercado por outras cicatrizes. 'Vejam?', diz Rhiannon. 'Um pequeno espaço livre no meio de um mar de dados ocupados. É inútil. Não podemos plantar nada grande aqui. A desfragmentação exige um plano, não ações aleatórias.'",
+            "opcoes": [
+                { "texto": "Retornar à borda e começar de novo.", "destino": 21 }
+            ]
+        },
+        {
+            "id": 23,
+            "texto": "O primeiro bloco está limpo. O espaço é pequeno, mas é um começo. Vocês avançam para o próximo bloco adjacente, continuando o processo de limpeza.",
+            "opcoes": [
+                 { 
+                    "tipo": "combate", "texto": "Limpar o segundo bloco (Batalha 2 de 3).",
+                    "inimigos": {
+                        "inimigos_lista": ["espinho_fragmentado", "espinho_maior"],
+                        "destino_vitoria": 24, "destino_derrota": 99
+                    }
+                }
+            ]
+        },
+        {
+            "id": 24,
+            "texto": "Mais um bloco purificado. O caminho de terra saudável está se tornando visível, conectando as árvores. A luz do sol começa a penetrar o dossel.",
+            "opcoes": [
+                 { 
+                    "tipo": "combate", "texto": "Limpar o bloco final (Batalha 3 de 3).",
+                    "inimigos": {
+                        "inimigos_lista": ["espinho_maior", "espinho_maior"],
+                        "destino_vitoria": 25, "destino_derrota": 99
+                    }
+                }
+            ]
+        },
+        {
+            "id": 25,
+            "texto": "Com a última cicatriz purificada, um longo corredor de terra fértil agora cruza o bosque. 'Maravilhoso,' diz Rhiannon. 'Vocês pegaram muitos pequenos espaços livres e os uniram em um grande bloco contíguo. Vocês acabaram de realizar uma desfragmentação manual.'",
+            "opcoes": [
+                { "texto": "Missão no Bosque cumprida. Voltar ao mapa estratégico.", "destino": 41 }
+            ]
+        },
+        {
+            "id": 30,
+            "texto": "O Rio de Cristal deveria ser a fonte de toda a vida no vale. Agora, sua nascente está bloqueada por um imenso cristal sombrio que pulsa como um coração doente, bombeando corrupção. 'Este é o 'Índice' do nosso sistema de arquivos,' diz Rhiannon com temor. 'A Tabela de Alocação de Vida. Ela que diz quais partes do vale estão livres ou ocupadas. A própria tabela foi corrompida. Se a purificarmos, o sistema pode se reorganizar e marcar todos os outros blocos como livres. É a solução mais rápida, mas também a mais perigosa.'",
+            "opcoes": [
+                { "texto": "Enfrentar o desafio e purificar o Índice.", "destino": 31 }
+            ]
+        },
+        {
+            "id": 31,
+            "texto": "Ao se aproximarem da nascente, o cristal pulsa violentamente e projeta uma criatura colossal: o Guardião do Índice. Uma entidade feita de pura informação corrompida, sua forma muda constantemente. Derrotá-lo é a única forma de reparar a tabela de alocação.",
+            "opcoes": [
+                { 
+                    "tipo": "combate", "texto": "Lutar contra o Guardião do Índice!",
+                    "inimigos": {
+                        "inimigos_lista": ["guardiao_indice"],
+                        "destino_vitoria": 40, "destino_derrota": 99
+                    }
+                }
+            ]
+        },
+        {
+            "id": 40,
+            "texto": "Com um grito que distorce a realidade, o Guardião se desfaz. O cristal sombrio se estilhaça, e a nascente do rio explode em luz pura. Uma onda de purificação desce pelo rio, e vocês observam, fascinados, as cicatrizes por todo o vale recuarem, deixando para trás a maior e mais fértil clareira que poderiam imaginar. 'O Índice foi reparado!', exclama Rhiannon. 'O sistema agora reconhece todo o espaço corrompido como livre. Está pronto!'",
+            "opcoes": [
+                { "texto": "Missão do Rio cumprida. Preparar para o plantio final.", "destino": 42 }
+            ]
+        },
+        {
+            "id": 41,
+            "texto": "Vocês retornam ao mapa. Uma parte do vale está curada, mas a clareira ainda não é grande o suficiente para a Semente-Coração. 'O trabalho de gerenciamento de espaço continua,' diz Rhiannon. 'Onde será a próxima limpeza?'",
+            "opcoes": [
+                { "texto": "Ir para os Campos Afundados.", "destino": 10 },
+                { "texto": "Ir para o Bosque Sussurrante.", "destino": 20 },
+                { "texto": "Ir para o Rio de Cristal.", "destino": 30 }
+            ]
+        },
+        {
+            "id": 42,
+            "texto": "Rhiannon os leva a um altar de pedra com vista para todo o vale, agora quase completamente purificado. 'A terra está quase pronta. Mas antes de plantarmos a Semente-Coração, precisamos fazer a desfragmentação final. Os últimos focos de corrupção devem ser movidos para consolidar o espaço livre. Esta é a otimização final.'",
+            "opcoes": [
+                {
+                    "tipo": "minigame_desfragmentacao",
+                    "texto": "Iniciar a Desfragmentação do Vale.",
+                    "destino_sucesso": 50,
+                    "destino_falha": 99
+                }
+            ]
+        },
+        {
+            "id": 50,
+            "texto": "Com o vale perfeitamente desfragmentado, vocês plantam a Semente-Coração no centro da imensa clareira. Ela germina instantaneamente, e suas raízes de luz se espalham por todo o vale, seguindo os caminhos que vocês abriram. Uma árvore majestosa de pura energia cresce em segundos, e sua copa banha todo o Jardim de Cicatrizes em vida. Vocês não apenas venceram a corrupção; vocês reorganizaram o sistema para permitir que a vida florescesse da forma mais eficiente possível.",
+            "opcoes": [
+                { "texto": "Retornar à Seleção de Crônicas", "tipo": "redirect", "url": "selecao_historia" }
+            ],
+            "unlocks": "historia4"
+        },
+        {
+            "id": 99,
+            "texto": "A corrupção é avassaladora. Vocês são consumidos pelas manifestações sombrias, suas essências se tornando apenas mais um 'dado corrompido' na terra morta. O Jardim de Cicatrizes reivindica mais algumas vítimas. Fim.",
+            "opcoes": [
+                { 
+            "tipo": "redirect_menu", 
+            "texto": "Voltar à Seleção de Histórias" 
+        }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,228 @@
+{
+    "metadata": {
+        "identificador": "historia2",
+        "titulo": "Capítulo 2: A Cidade Sem Ontem",
+        "premissa": "Os heróis chegam à cidade-santuário de Argenta, um bastião de conhecimento, e a encontram afligida por uma 'Névoa do Esquecimento'. Os cidadãos estão perdendo suas memórias e sua própria identidade. A causa é o santuário da cidade, que só consegue manter um número limitado de 'almas conscientes' ativas. Para combater a névoa, os jogadores precisam do conhecimento de heróis adormecidos, mas para despertá-los, eles devem convencer outros heróis ativos a retornarem ao 'Grande Repouso', em um doloroso sacrifício de 'quem é mais necessário agora?'."
+    },
+    "paginas": [
+        {
+            "id": 0,
+            "texto": "Após a vitória sobre Veridian, a jornada os leva a Argenta, a Cidade-Santuário. As lendas a descrevem como um farol de conhecimento, com torres de mármore e prata que arranham os céus. A realidade que os recebe é... diferente. Uma névoa cinzenta e oleosa se agarra às ruas, abafando sons e tornando o ar pesado. O silêncio é o que mais perturba. Uma cidade de sábios deveria fervilhar com debates e o som de ferramentas, mas Argenta parece um fantasma de si mesma.",
+            "opcoes": [
+                { "texto": "Observar os cidadãos para entender a situação.", "destino": 1 },
+                { "texto": "Ignorar as pessoas e ir direto à Torre dos Arquivos.", "destino": 2 }
+            ]
+        },
+        {
+            "id": 1,
+            "texto": "Vocês se aproximam de uma praça. Um ferreiro musculoso encara sua bigorna com uma expressão de total perplexidade. Uma barda afina seu alaúde repetidamente, mas nunca começa uma canção, como se tivesse esquecido a melodia. Perto de um chafariz, uma estátua de um herói do passado está coberta de bilhetes. Um deles diz: 'Quem era você? E por que eu sinto que deveria saber?'. A Névoa não rouba apenas o futuro; ela apaga o passado.",
+            "opcoes": [
+                { "texto": "É desolador. Precisamos encontrar respostas na Torre dos Arquivos.", "destino": 2 }
+            ]
+        },
+        {
+            "id": 2,
+            "texto": "A Torre dos Arquivos é o eixo central de Argenta. Ao entrar, vocês são recebidos por uma mulher com olhos afiados, mas cujo rosto carrega o peso de mil noites sem dormir. 'Eu sou a Arquivista Lyra. E vocês... vocês são os Despertos. Sua chegada era prevista, mas temo que seja tarde demais.' Ela gesticula para os arquivos ao redor, onde prateleiras inteiras de livros estão em branco. 'A Névoa... é uma falha catastrófica no sistema.'",
+            "opcoes": [
+                { "texto": "Pedir que ela explique a natureza do 'sistema'.", "destino": 3 }
+            ]
+        },
+        {
+            "id": 3,
+            "texto": "Lyra os leva a um observatório no topo da torre. Abaixo, no coração da cidade, um cristal gigante pulsa lentamente, o Coração de Argenta. 'Nossa cidade é um santuário para as maiores almas. O Coração as mantém 'conscientes', ativas. É a nossa Memória RAM. O problema é que, como toda memória, ela é finita. Atingimos o limite de alocação. A Névoa é o resultado de 'thrashing', uma sobrecarga onde o sistema gasta todo o seu tempo tentando gerenciar a memória, trocando pedaços de almas, e no processo, corrompendo tudo.'",
+            "opcoes": [
+                { "texto": "Perguntar sobre uma solução.", "destino": 4 }
+            ]
+        },
+        {
+            "id": 4,
+            "texto": "'A solução é paradoxal. Precisamos de mais conhecimento para resolver a crise que causou a sobrecarga. Sob a cidade existe o 'Grande Repouso', nossa Memória Virtual. Almas de heróis do passado dormem lá. Para trazer uma alma de volta — um 'page fault' em nossa terminologia — precisamos liberar um 'endereço de memória'. Um herói ativo precisa ser convencido a desocupar seu espaço e entrar no Repouso. É um swap. Um sacrifício.'",
+            "opcoes": [
+                { "texto": "Quem precisamos despertar e quem são os candidatos ao 'swap'?", "destino": 5 }
+            ]
+        },
+        {
+            "id": 5,
+            "texto": "Lyra projeta três imagens espectrais. 'Para combater a ameaça externa que causa esta sobrecarga, precisamos do gênio estratégico de Kael, o Tático. Ele dorme no Grande Repouso. Para despertá-lo, um destes três precisa ceder seu lugar. Cada um executa uma função vital. A escolha de qual 'página' de nossa memória substituir é sua. Vocês serão o nosso algoritmo de substituição de página.'",
+            "opcoes": [
+                { "texto": "Investigar Sir Gideon, o Protetor (Segurança do Sistema).", "destino": 10 },
+                { "texto": "Investigar Mestra Elara, a Curandeira (Manutenção do Sistema).", "destino": 20 },
+                { "texto": "Investigar Valerius, o Sábio Recente (Cache de Dados).", "destino": 30 }
+            ]
+        },
+        {
+            "id": 10,
+            "texto": "Vocês encontram Sir Gideon na muralha, gritando ordens para uma guarda confusa. Manifestações sombrias, nascidas da Névoa, arranham os portões. 'Vejam!', ele brada, apontando a espada. 'Eu sou o processo guardião! Minha execução é perpétua. Se eu parar, se eu for para o Repouso, as defesas caem. Quem protegerá a integridade do sistema?'",
+            "opcoes": [
+                { "texto": "Ajudá-lo a defender o portão.", "destino": 11 },
+                { "texto": "Argumentar que a ameaça interna é maior.", "destino": 12 },
+                { "texto": "Voltar.", "destino": 5 }
+            ]
+        },
+        {
+            "id": 11,
+            "texto": "Vocês se juntam à luta. É uma batalha curta, mas feroz. As criaturas são fracas, mas numerosas. Após a luta, Gideon os encara, ofegante. 'Viram? Isso acontece a cada hora. Minha presença aqui é a única coisa que impede o caos de nos engolir. Ir para o Repouso não é uma opção.'",
+            "opcoes": [
+                { "texto": "Ele tem razão. Voltar para as outras opções.", "destino": 5 }
+            ]
+        },
+        {
+            "id": 12,
+            "texto": "'Sua muralha protege corpos, Sir Gideon, mas a Névoa devora almas. De que adianta um corpo seguro sem uma mente para habitá-lo?', você argumenta.",
+            "opcoes": [
+                {
+                    "tipo": "teste",
+                    "texto": "Tentar convencê-lo (Carisma).",
+                    "nome_teste": "Teste de Persuasão", "dificuldade": 16,
+                    "destino_sucesso": 13, "destino_falha": 14
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "texto": "SUCESSO: Suas palavras o atingem. Ele olha para os guardas, para a cidade enevoada, e sua postura rígida cede. 'Sua lógica... é dolorosamente correta. Eu sou um escudo, mas o ataque vem de dentro.' Com o coração pesado, ele concorda. 'Façam o que precisa ser feito. Que meu sacrifício compre a todos nós um futuro.'",
+            "opcoes": [
+                { "texto": "Acompanhá-lo ao Coração de Argenta.", "destino": 40 }
+            ]
+        },
+        {
+            "id": 14,
+            "texto": "FALHA: 'Palavras vazias!', ele rosna. 'Enquanto eu respirar, nenhuma criatura passará por este portão. Essa é minha função, meu propósito. Encontrem outra solução!'",
+            "opcoes": [
+                { "texto": "Voltar.", "destino": 5 }
+            ]
+        },
+        {
+            "id": 20,
+            "texto": "O Salão da Cura é um lugar de silencioso desespero. Mestra Elara se move entre dezenas de cidadãos deitados em leitos, tocando suas testas e sussurrando palavras de poder. 'Eu não curo a Névoa,' ela diz, sem olhar para vocês. 'Eu faço a manutenção. Restauro pequenos fragmentos, mantenho a 'memória' coesa. Meu trabalho é acessado constantemente. Se eu parar, a fragmentação se acelera. Eles... se perdem para sempre.'",
+            "opcoes": [
+                { "texto": "Observar o estado de um paciente.", "destino": 21 },
+                { "texto": "Argumentar que a causa raiz precisa ser tratada.", "destino": 22 },
+                { "texto": "Voltar.", "destino": 5 }
+            ]
+        },
+        {
+            "id": 21,
+            "texto": "Vocês olham para um velho erudito. Por um momento, sob o toque de Elara, seus olhos brilham com reconhecimento. 'A... a constante de Alcuin é...' e então a luz se apaga, e ele volta a ser uma casca vazia. O trabalho de Elara é vital, mas é um paliativo contra uma inundação.",
+            "opcoes": [
+                { "texto": "Ela é muito necessária. Voltar.", "destino": 5 }
+            ]
+        },
+        {
+            "id": 22,
+            "texto": "'Seu trabalho é nobre, Mestra. Mas você está enxugando o chão enquanto a represa está quebrada. Despertar Kael pode consertar a represa.'",
+            "opcoes": [
+                {
+                    "tipo": "teste",
+                    "texto": "Tentar convencê-la (Sabedoria).",
+                    "nome_teste": "Teste de Argumento Lógico", "dificuldade": 15,
+                    "destino_sucesso": 23, "destino_falha": 24
+                }
+            ]
+        },
+        {
+            "id": 23,
+            "texto": "SUCESSO: Elara para, as mãos ainda brilhando com magia. Ela olha para os rostos vazios e depois para vocês, lágrimas se formando. 'Eu... me tornei parte do ciclo, não da solução. É preciso um sacrifício maior.' Ela assente. 'Pela chance de uma cura real, eu irei para o Repouso.'",
+            "opcoes": [
+                { "texto": "Acompanhá-la ao Coração de Argenta.", "destino": 40 }
+            ]
+        },
+        {
+            "id": 24,
+            "texto": "FALHA: 'Não! Sua 'cura real' é uma aposta! O meu cuidado é uma certeza. Não vou abandonar estas almas por uma talvez. Minha resposta é não!'",
+            "opcoes": [
+                { "texto": "Voltar.", "destino": 5 }
+            ]
+        },
+        {
+            "id": 30,
+            "texto": "Valerius, um estudioso jovem e elétrico, mal percebe sua presença. Sua biblioteca particular está em um estado de caos organizado, com pergaminhos e cristais espalhados. 'Não me interrompam!', ele exclama. 'Estou tão perto! Fui 'carregado' há poucas semanas e já conectei a instabilidade da Trama com padrões de ressonância harmônica! É o conhecimento mais recente, o mais relevante! Se eu for para o Repouso agora, essa 'cache' de dados se perde!'",
+            "opcoes": [
+                { "texto": "Perguntar sobre a descoberta dele.", "destino": 31 },
+                { "texto": "Argumentar que o conhecimento dele é inútil sem um futuro.", "destino": 32 },
+                { "texto": "Voltar.", "destino": 5 }
+            ]
+        },
+        {
+            "id": 31,
+            "texto": "Ele mostra um mapa celestial que se move. 'A Trama não está apenas se desfazendo, ela está sendo 'reescrita' por uma fonte externa! É um padrão, entendem? Eu sou o único que viu isso. Preciso de mais tempo!'",
+            "opcoes": [
+                { "texto": "Ele é importante demais. Voltar.", "destino": 5 }
+            ]
+        },
+        {
+            "id": 32,
+            "texto": "'De que adianta entender o padrão da doença se o paciente morrer, Valerius? Sua descoberta só terá valor se houver uma Argenta para se beneficiar dela.'",
+            "opcoes": [
+                {
+                    "tipo": "teste",
+                    "texto": "Tentar convencê-lo (Inteligência).",
+                    "nome_teste": "Teste de Persuasão Lógica", "dificuldade": 14,
+                    "destino_sucesso": 33, "destino_falha": 34
+                }
+            ]
+        },
+        {
+            "id": 33,
+            "texto": "SUCESSO: Valerius congela. A lógica fria de suas palavras atravessa sua paixão febril. Ele afunda em uma cadeira, derrotado. 'A premissa... é irrefutável. Salvem o presente, para que meu trabalho possa ter um futuro.' Ele se levanta. 'Estou pronto.'",
+            "opcoes": [
+                { "texto": "Acompanhá-lo ao Coração de Argenta.", "destino": 40 }
+            ]
+        },
+        {
+            "id": 34,
+            "texto": "FALHA: 'Vocês não entendem! O que estou fazendo aqui é mais importante do que qualquer tático de guerra esquecido! A resposta está aqui, ao meu alcance! Não vou desistir dela!'",
+            "opcoes": [
+                { "texto": "Voltar.", "destino": 5 }
+            ]
+        },
+        {
+            "id": 40,
+            "texto": "Na câmara do Coração, o herói escolhido se despede e sua forma se torna translúcida. Lyra aponta para o cristal pulsante. 'O espaço está livre, mas não está limpo. É um bloco de memória fragmentada. Vocês precisam alocar a essência de Kael nos espaços vazios, desfragmentando a área para que a alma dele se encaixe perfeitamente. Um erro, e a alocação falhará, corrompendo ambas as almas.'",
+            "opcoes": [
+                {
+                    "tipo": "minigame_memoria",
+                    "texto": "Iniciar o Minigame 'Tear da Memória'.",
+                    "destino_sucesso": 50,
+                    "destino_falha": 51
+                }
+            ]
+        },
+        {
+            "id": 50,
+            "texto": "SUCESSO: Como mestres tecelões, vocês encaixam cada fragmento da alma de Kael nos espaços vazios do Coração. O cristal brilha com uma luz estável e poderosa, e a figura de um homem com olhos de estrategista se materializa. 'Kael, o Tático, reportando-se,' ele diz, sua voz ressoando com autoridade. A névoa lá fora recua visivelmente.",
+            "opcoes": [
+                { "texto": "Explicar a situação para Kael.", "destino": 52 }
+            ]
+        },
+        {
+            "id": 51,
+            "texto": "FALHA: Um fragmento não se encaixa. A tentativa de forçá-lo causa uma 'falha de segmentação' catastrófica. O Coração de Argenta emite um som de cristal se quebrando, e a névoa lá fora se transforma em uma tempestade. Ambas as almas, a de Kael e a do herói sacrificado, se perdem para sempre. A memória está corrompida. Argenta está perdida.",
+            "opcoes": [
+                { "texto": "Fim da Linha.", "destino": 99 }
+            ]
+        },
+        {
+            "id": 52,
+            "texto": "Kael analisa a situação rapidamente. 'Entendo. A sobrecarga não é acidental. É um ataque. Um paradoxo lógico foi inserido na Trama para forçar um 'denial of service' na memória de Argenta. A solução não é mais memória, mas otimização e a remoção do código malicioso.' Ele aponta para as Montanhas Distantes. 'A fonte do paradoxo está lá. E eu sei como vamos desarmá-la.' Fim do Capítulo",
+            "opcoes": [
+                { 
+                    "texto": "Retornar à Seleção de Crônicas", 
+                    "tipo": "redirect",
+                    "url": "selecao_historia"
+                }
+            ],
+            "unlocks": "historia3"
+        },
+        {
+            "id": 99,
+            "texto": "A Névoa do Esquecimento consome tudo. Logo, vocês também esquecem seus nomes, suas missões, e por que vieram para esta cidade silenciosa. Vocês se tornam apenas mais um rosto perdido na névoa. Fim.",
+            "opcoes": [
+                { 
+            "tipo": "redirect_menu", 
+            "texto": "Voltar à Seleção de Histórias" 
+        }
+            ]
+        }
+    ]
+}

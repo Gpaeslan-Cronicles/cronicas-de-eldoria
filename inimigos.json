@@ -1,0 +1,96 @@
+{
+    "soldado_rebelde": {
+        "nome": "Soldado Rebelde",
+        "hp_max": 15,
+        "iniciativa_bonus": 1,
+        "ataques": [
+            {
+                "nome": "Espada Longa",
+                "chance_acerto": 4,
+                "dado_dano": "1d8+2"
+            }
+        ],
+        "icone": "🛡️"
+    },
+    "lobo_de_guerra": {
+        "nome": "Lobo de Guerra",
+        "hp_max": 11,
+        "iniciativa_bonus": 2,
+        "ataques": [
+            {
+                "nome": "Mordida Feroz",
+                "chance_acerto": 4,
+                "dado_dano": "1d6+2"
+            }
+        ],
+        "icone": "🐺"
+    },
+    "general_kael": {
+        "nome": "General Kael",
+        "hp_max": 40,
+        "iniciativa_bonus": 2,
+        "ataques": [
+            {
+                "nome": "Machado de Batalha",
+                "chance_acerto": 6,
+                "dado_dano": "1d10+3"
+            },
+            {
+                "nome": "Grito de Guerra",
+                "chance_acerto": 100,
+                "dado_dano": "0d0",
+                "efeito_especial": "fortalecer_aliados"
+            }
+        ],
+        "icone": "👹"
+    },
+    "elemental_tempestade": {
+        "nome": "Elemental da Tempestade",
+        "hp_max": 18,
+        "iniciativa_bonus": 3,
+        "ataques": [
+            {
+                "nome": "Pancada Elétrica",
+                "chance_acerto": 5,
+                "dado_dano": "1d8+2"
+            }
+        ],
+        "icone": "🌪️"
+    },
+    "anomalia_do_vinculo": {
+        "nome": "Anomalia do Vínculo",
+        "hp_max": 120,
+        "iniciativa_bonus": 4,
+        "ataques": [
+            {
+                "id": "fogo",
+                "nome": "Ciclo de Fogo: Erupção",
+                "chance_acerto": 7,
+                "dado_dano": "2d8+3"
+            },
+            {
+                "id": "terra",
+                "nome": "Ciclo de Terra: Prisão de Pedra",
+                "chance_acerto": 6,
+                "dado_dano": "1d10+2"
+            },
+            {
+                "id": "ar",
+                "nome": "Ciclo de Ar: Lâmina de Vento",
+                "chance_acerto": 8,
+                "dado_dano": "3d4+2"
+            },
+            {
+                "id": "agua",
+                "nome": "Ciclo de Água: Jato Sufocante",
+                "chance_acerto": 7,
+                "dado_dano": "1d12+1"
+            }
+        ],
+        "habilidades_especiais": {
+            "troca_ciclo": "A cada turno, a Anomalia muda para um novo ciclo elemental, alterando seu ataque principal.",
+            "imunidade_parcial": "A Anomalia é resistente ao elemento do seu ciclo atual."
+        },
+        "icone": "🌀"
+    }
+}

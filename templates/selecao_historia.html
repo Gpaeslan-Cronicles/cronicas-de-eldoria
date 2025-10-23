@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha sua Crônica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/estilo.css">
+</head>
+<body class="body-menu-v2">
+    <div class="scroll-container">
+        <div class="scroll-content">
+            <header class="scroll-header">
+                <h1 class="game-title-v2">Crônicas</h1>
+                <p class="subtitle">Escolha o conto que deseja vivenciar...</p>
+            </header>
+            
+            <nav class="scroll-nav">
+                {% for story in stories %}
+                    {% if story.identificador in unlocked_stories %}
+                        <a href="{{ url_for('configurar_partida', nome_da_historia=story.identificador) }}" class="menu-button-v2">
+                            <span class="icon">📜</span> {{ story.titulo }}
+                        </a>
+                    {% else %}
+                        <div class="menu-button-v2 disabled">
+                            <span class="icon">🔒</span> {{ story.titulo }} (Bloqueada)
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+                <a href="{{ url_for('menu_principal') }}" class="menu-button-v2 back-button">
+                    <span class="icon">↩️</span> Voltar ao Menu Principal
+                </a>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>

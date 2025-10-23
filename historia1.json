@@ -1,0 +1,306 @@
+{
+    "metadata": {
+        "identificador": "historia1",
+        "titulo": "Capítulo 1: A Coroa e a Tempestade",
+        "premissa": "As leis fundamentais que governam a realidade — conhecidas pelos poucos que as estudam como a 'Trama da Existência' — estão se desfazendo. Este fenômeno, chamado de 'O Desvanecer', cria fraturas na realidade, onde o tempo gagueja, a matéria se torna instável e a lógica falha. Os jogadores são 'Os Despertos', um grupo de almas raras que conseguem sentir essas fraturas e são a única esperança para restaurar o Equilíbrio do mundo antes que ele seja consumido pelo caos."
+    },
+    "paginas": [
+        {
+            "id": 0,
+            "texto": "A Sala do Trono do Rei Theron está mergulhada em penumbra, o único som sendo o crepitar das tochas e o uivo distante da tempestade arcana que assola a capital. Raios púrpuras cortam o céu lá fora, um reflexo doente da anarquia que consome o reino. O ar cheira a ozônio e medo. A General Elara, comandante dos Exércitos Reais, aproxima-se de vocês. Sua armadura polida está manchada de fuligem e seu rosto, normalmente sereno, está gravado com exaustão.",
+            "opcoes": [
+                { "texto": "Ouvir o que ela tem a dizer.", "destino": 1 }
+            ]
+        },
+        {
+            "id": 1,
+            "texto": "'Despertos, bem-vindos a este tempo sombrio,' diz Elara, sua voz controlada, mas tensa. Ela aponta para uma grande mesa de guerra, coberta de mapas e relatórios urgentes. 'O reino está sitiado, não apenas pela tempestade. Tenho uma fila de processos críticos aguardando execução: saqueadores orcs na fronteira sul, uma praga se alastrando nos campos e disputas de guildas paralisando nosso comércio.'",
+            "opcoes": [
+                { "texto": "Perguntar qual é a prioridade.", "destino": 2 }
+            ]
+        },
+        {
+            "id": 2,
+            "texto": "'Essa é a questão,' ela responde, passando a mão pelo rosto cansado. 'Meu algoritmo de escalonamento está sobrecarregado. Os orcs e a praga são processos de alta prioridade, mas são de execução longa. A traição do Duque Veridian, no entanto... é diferente. Ele é um processo que está consumindo todos os recursos e ameaçando um 'kernel panic' que derrubaria todo o sistema. Ele tem a prioridade mais alta. Ignorá-lo para lidar com as outras tarefas seria como polir o convés de um navio que está afundando. Vocês precisam ser meu processo de terminação de tarefa. Vão para a Cidadela da Tempestade e encerrem a execução de Veridian.'",
+            "opcoes": [
+                { "texto": "Aceitar a missão de mais alta prioridade.", "destino": 3 }
+            ]
+        },
+        {
+            "id": 3,
+            "texto": "Elara os guia até uma grande mesa tática. 'O tempo é nosso recurso mais precioso. Como em um escalonamento de processos, precisamos decidir qual tarefa executar primeiro para causar o máximo de dano com o mínimo de custo. A força de Veridian se apoia em três pilares. Cada um que derrubarmos o deixará mais fraco, mas cada um tem seus próprios riscos. A escolha é de vocês.'",
+            "opcoes": [
+                {
+                    "texto": "[Prioridade Máxima] Confrontar o General Kael, o Executor de Veridian, em sua fortaleza.",
+                    "destino": 10
+                },
+                {
+                    "texto": "[Tarefa Mais Curta] Sabotar a Mina de Cristal Tempestuoso, a fonte de poder da tempestade.",
+                    "destino": 20
+                },
+                {
+                    "texto": "[Round-Robin] Atacar as linhas de suprimento dos Barões, enfraquecendo todos os processos filhos um pouco de cada vez.",
+                    "destino": 30
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "texto": "A Fortaleza da Vontade de Ferro, quartel-general do General Kael. Um bastião de pedra negra que desafia a tempestade. Atacar o processo de maior prioridade é arriscado. A abordagem principal está fortemente vigiada. No entanto, um batedor capturado revelou uma rota alternativa: uma passagem de esgoto que leva diretamente para o pátio interno.",
+            "opcoes": [
+                {
+                    "tipo": "teste",
+                    "texto": "Enfrentar os guardas no portão principal de frente.",
+                    "nome_teste": "Teste de Força (Intimidação)",
+                    "dificuldade": 17,
+                    "destino_sucesso": 11,
+                    "destino_falha": 12
+                },
+                {
+                    "tipo": "teste",
+                    "texto": "Navegar pela passagem de esgoto imunda.",
+                    "nome_teste": "Teste de Constituição (Resistência)",
+                    "dificuldade": 14,
+                    "destino_sucesso": 13,
+                    "destino_falha": 14
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "texto": "SUCESSO: Sua presença é tão imponente que os guardas hesitam por um momento crucial. A breve hesitação é tudo que vocês precisam para abrir uma brecha e invadir o pátio. A surpresa ainda está do seu lado.",
+            "opcoes": [
+                { "texto": "Avançar para o salão principal.", "destino": 15 }
+            ]
+        },
+        {
+            "id": 12,
+            "tipo": "combate",
+            "texto_pre_combate": "FALHA: Os guardas zombam de suas ameaças. 'Pela vontade do Lorde Veridian!' eles gritam, e o som de uma corneta de alarme ecoa. As portas se fecham e vocês estão presos do lado de fora, cercados por uma patrulha!",
+            "inimigos": [
+                { "id_inimigo": "soldado_rebelde", "nome_unico": "Sentinela Leal" },
+                { "id_inimigo": "soldado_rebelde", "nome_unico": "Sentinela Leal" },
+                { "id_inimigo": "lobo_de_guerra", "nome_unico": "Cão de Caça" }
+            ],
+            "destino_vitoria": 15,
+            "destino_derrota": 99
+        },
+        {
+            "id": 13,
+            "texto": "SUCESSO: O fedor é insuportável, mas vocês perseveram. A passagem os leva diretamente para o centro do pátio, desapercebidos. Vocês emergiram no coração da fortaleza inimiga com a vantagem tática.",
+            "opcoes": [
+                { "texto": "Invadir o salão principal.", "destino": 15 }
+            ]
+        },
+        {
+            "id": 14,
+            "texto": "FALHA: O caminho é um labirinto de túneis claustrofóbicos e água fétida. Vocês se perdem e acabam saindo em uma grade que dá para o fosso. Exaustos e doentes pela jornada, vocês perdem tempo e o elemento surpresa. Precisam escalar para o pátio, já em desvantagem.",
+            "opcoes": [
+                { "texto": "Escalar para o pátio e lutar.", "destino": 15 }
+            ],
+            "efeitos": {
+                "dano_hp": 3
+            }
+        },
+        {
+            "id": 15,
+            "texto": "O salão principal é um caos de soldados se armando. No centro, de pé sobre um mapa manchado de vinho, está o General Kael. Um homem brutal com um machado do tamanho de um anão. 'Então os cães do velho Rei vieram morrer,' ele rosna. 'Vou terminar seus processos pessoalmente.'",
+            "opcoes": [
+                {
+                    "tipo": "combate",
+                    "texto_pre_combate": "A batalha pelo comando começa!",
+                    "inimigos": [
+                        { "id_inimigo": "soldado_rebelde", "nome_unico": "Guarda de Elite de Kael" },
+                        { "id_inimigo": "general_kael", "nome_unico": "General Kael, o Executor" },
+                        { "id_inimigo": "soldado_rebelde", "nome_unico": "Guarda de Elite de Kael" }
+                    ],
+                    "destino_vitoria": 16,
+                    "destino_derrota": 99
+                }
+            ]
+        },
+        {
+            "id": 16,
+            "texto": "Kael cai de joelhos, derrotado. 'O Lorde Veridian... ele lhes prometeu ordem... um sistema perfeito...' ele murmura antes de tombar. Com o general derrotado, a cadeia de comando rebelde se quebra. As tropas, sem um líder, se rendem ou fogem. A primeira grande vitória é sua.",
+            "opcoes": [
+                { "texto": "Retornar para a capital.", "destino": 40 }
+            ]
+        },
+        {
+    "id": 20,
+    "tipo": "combate",
+    "texto_pre_combate": "A Mina de Cristal Tempestuoso. A energia arcana aqui é tão densa que arrepia a pele. A entrada é guardada por Elementais da Tempestade, manifestações físicas do caos que o Duque está causando, que se formam de poeira e raios para bloquear seu caminho!",
+    "inimigos": [
+        { "id_inimigo": "elemental_tempestade", "nome_unico": "Eco da Anarquia" },
+        { "id_inimigo": "elemental_tempestade", "nome_unico": "Eco da Anarquia" }
+    ],
+    "destino_vitoria": 21,
+    "destino_derrota": 99
+},
+        {
+            "id": 21,
+            "texto": "Com os guardiões desfeitos, vocês entram na mina. O coração da caverna pulsa com uma luz púrpura, vinda de um enorme cristal flutuante. Ele está coberto de runas complexas que o sintonizam com a tempestade. Destruí-lo pode ser perigoso.",
+            "opcoes": [
+                {
+                    "texto": "[GUERREIRO] Quebrar o cristal com força bruta.",
+                    "destino": 22,
+                    "requires": {"classe": "guerreiro"}
+                },
+                {
+                    "tipo": "teste",
+                    "texto": "[MAGO] Reescrever as runas para desestabilizar o fluxo.",
+                    "nome_teste": "Teste de Inteligência (Arcanismo)",
+                    "dificuldade": 16,
+                    "destino_sucesso": 23,
+                    "destino_falha": 22,
+                    "requires": {"classe": "mago"},
+                    "modificador": "vantagem"
+                },
+                {
+                    "tipo": "teste",
+                    "texto": "Tentar decifrar e desativar as runas.",
+                    "nome_teste": "Teste de Inteligência (Arcanismo)",
+                    "dificuldade": 16,
+                    "destino_sucesso": 23,
+                    "destino_falha": 22
+                }
+            ]
+        },
+        {
+            "id": 22,
+            "texto": "FALHA: A tentativa de interferir no cristal resulta em uma sobrecarga! Uma explosão de energia arcana os joga contra as paredes. O cristal se estilhaça, sim, mas a onda de choque os deixa feridos e a tempestade lá fora parece ainda mais instável por um momento. A missão foi um sucesso, mas a um custo.",
+            "opcoes": [
+                { "texto": "Retornar, machucados, mas vitoriosos.", "destino": 40 }
+            ],
+            "efeitos": {
+                "dano_hp": 6
+            }
+        },
+        {
+            "id": 23,
+            "texto": "SUCESSO: Com precisão e conhecimento, as runas são alteradas. O cristal para de pulsar e sua luz se apaga lentamente. O fluxo de poder para a tempestade é cortado de forma limpa. Um trabalho de mestre. A tempestade sobre a capital diminui visivelmente.",
+            "opcoes": [
+                { "texto": "Retornar para a capital.", "destino": 40 }
+            ]
+        },
+        {
+            "id": 30,
+            "texto": "Vocês decidem por uma estratégia de 'Round-Robin', atacando os processos filhos para enfraquecer o pai. As rotas comerciais que abastecem os barões de Veridian são o alvo. Vocês encontram uma encruzilhada movimentada, perfeita para uma emboscada. Logo, uma caravana do Barão das Presas se aproxima.",
+            "opcoes": [
+                {
+                    "texto": "Atacar a caravana de frente.",
+                    "destino": 31
+                },
+                {
+                    "tipo": "teste",
+                    "texto": "[LADINO] Infiltrar-se e sabotar as carroças antes do ataque.",
+                    "nome_teste": "Teste de Destreza (Prestidigitação)",
+                    "dificuldade": 15,
+                    "destino_sucesso": 34,
+                    "destino_falha": 35,
+                    "requires": {"classe": "ladino"}
+                }
+            ]
+        },
+        {
+            "id": 31,
+            "tipo": "combate",
+            "texto_pre_combate": "Vocês saem das árvores e bloqueiam a estrada. O capitão da guarda da caravana ri. 'Mais alguns vermes do Rei para esmagar!' A batalha pela estrada começa!",
+            "inimigos": [
+                { "id_inimigo": "soldado_rebelde", "nome_unico": "Mercenário das Presas" },
+                { "id_inimigo": "soldado_rebelde", "nome_unico": "Mercenário das Presas" },
+                { "id_inimigo": "lobo_de_guerra", "nome_unico": "Besta de Carga" }
+            ],
+            "destino_vitoria": 33,
+            "destino_derrota": 99
+        },
+        {
+            "id": 33,
+            "texto": "A guarda da caravana é derrotada. Vocês incendeiam os suprimentos. A mensagem é clara: as linhas de abastecimento não são seguras. O Barão das Presas terá que racionar seus recursos, enfraquecendo o apoio ao Duque Veridian.",
+            "opcoes": [
+                { "texto": "Continuar para a capital.", "destino": 40 }
+            ]
+        },
+        {
+            "id": 34,
+            "tipo": "combate",
+            "texto_pre_combate": "SUCESSO: Perfeito! No seu sinal, as rodas das carroças se soltam e os animais disparam. Os guardas estão em total desordem. Vocês atacam com a vantagem do caos absoluto!",
+            "inimigos": [
+                { "id_inimigo": "soldado_rebelde", "nome_unico": "Mercenário em Pânico" },
+                { "id_inimigo": "soldado_rebelde", "nome_unico": "Mercenário em Pânico" }
+            ],
+            "destino_vitoria": 33,
+            "destino_derrota": 99
+        },
+        {
+            "id": 35,
+            "texto": "FALHA: Ao tentar soltar um pino de uma roda, sua ferramenta escapa e faz um barulho metálico. Um guarda ouve e soa o alarme. A tentativa de sabotagem falhou, e agora eles estão preparados para o seu ataque.",
+            "opcoes": [
+                { "texto": "Não há escolha a não ser lutar.", "destino": 31 }
+            ]
+        },
+        {
+            "id": 40,
+            "texto": "Vocês retornam à capital e encontram a General Elara sobre os mapas novamente. 'Sua missão foi um sucesso. Sentimos a Trama se estabilizar um pouco. O processo do Duque está enfraquecido, mas a tempestade, a condição de corrida entre os poderes, ainda ameaça nos destruir.'",
+            "opcoes": [
+                { "texto": "Qual é a etapa final?", "destino": 41 }
+            ]
+        },
+        {
+            "id": 41,
+            "texto": "'Nossos magos confirmaram. Veridian está puxando poder de dois locais simultaneamente: o Pico da Alvorada e o Pico do Crepúsculo. Ele está tentando acessar dois recursos críticos ao mesmo tempo. Para parar a tempestade, precisamos executar um contra-ritual que force a exclusão mútua, bloqueando o acesso dele.'",
+            "opcoes": [
+                { "texto": "Exclusão mútua?", "destino": 42 }
+            ]
+        },
+        {
+            "id": 42,
+            "texto": "'Precisamente. Precisamos que dois grupos ativem selos em ambos os picos no exato mesmo momento. Se um for ativado, mesmo que um segundo antes, o outro criará uma sobrecarga catastrófica. A sincronia tem que ser perfeita. A Trama não suportará outro erro. Os picos são perigosos e o tempo está se esgotando.'",
+            "opcoes": [
+                {
+                    "tipo": "minigame",
+                    "texto": "Aceitar o desafio e iniciar o Ritual da Sincronia.",
+                    "nome_minigame": "sincronia",
+                    "destino_sucesso": 50,
+                    "destino_falha": 51
+                }
+            ]
+        },
+        {
+            "id": 50,
+            "texto": "SUCESSO! Guiados por instinto e disciplina, vocês canalizam sua energia nos selos no momento exato. Uma ressonância perfeita percorre o mundo. Das nuvens da tempestade, a energia caótica não explode, mas sim se dissipa como névoa ao amanhecer. O céu se acalma. O poder de Veridian é cortado. A rebelião acabou.",
+            "opcoes": [
+                { "texto": "Vitória.", "destino": 52 }
+            ]
+        },
+        {
+            "id": 51,
+            "texto": "FALHA! Um momento de hesitação. É o suficiente. Um pulso de energia descontrolada flui de um pico para o outro, criando um feedback ensurdecedor na Trama. A tempestade colapsa sobre si mesma, liberando uma onda de pura realidade desfeita que varre as montanhas. A exclusão mútua falhou.",
+            "opcoes": [
+                { "texto": "...", "destino": 99 }
+            ]
+        },
+        {
+    "id": 52,
+    "texto": "De volta ao trono, o Rei Theron, embora ainda fraco, está de pé novamente. 'Vocês restauraram a hierarquia... salvaram a todos nós.' Elara acrescenta, 'Veridian foi capturado. Seus barões se renderam. Mas a Trama ainda está frágil. O Desvanecer é uma ameaça constante. Outros processos rebeldes podem surgir. Descansem, Despertos. Vocês mereceram.' FIM DO CAPÍTULO.",
+    "opcoes": [
+        { 
+            "texto": "Retornar à Seleção de Crônicas", 
+            "tipo": "redirect",
+            "url": "selecao_historia"
+        }
+    ],
+    "unlocks": "historia2"
+},
+        {
+            "id": 99,
+            "texto": "A realidade se desfaz ao seu redor. A tempestade não os mata, ela os apaga. Seus nomes, suas memórias, suas existências... tudo se desvanece na estática de um sistema que entrou em colapso. FIM DA LINHA.",
+            "opcoes": [
+                { 
+            "tipo": "redirect_menu", 
+            "texto": "Voltar à Seleção de Histórias" 
+        }
+            ]
+        }
+    ]
+}

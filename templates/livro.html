@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crônicas de Eldoria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/estilo.css">
+</head>
+<body class="body-dossier">
+
+    <div class="container-livro">
+        <div class="pagina-interativa">
+            {% if pagina.tipo == 'combate' %}
+                <p>{{ pagina.texto_pre_combate | safe }}</p>
+            {% else %}
+                <p>{{ pagina.texto | safe }}</p>
+            {% endif %}
+        </div>
+        
+        <div class="opcoes-escolha">
+            {% if pagina.tipo != 'combate' and pagina.opcoes %}
+                {% for opcao in pagina.opcoes %}
+    
+    {% if opcao.tipo == 'teste' %}
+        <button class="botao-escolha botao-teste"
+                data-nome-teste="{{ opcao.nome_teste }}"
+                data-dificuldade="{{ opcao.dificuldade }}"
+                data-url-sucesso="{{ url_for('livro_pagina', nome_da_historia=nome_da_historia, id_da_pagina=opcao.destino_sucesso) }}"
+                data-url-falha="{{ url_for('livro_pagina', nome_da_historia=nome_da_historia, id_da_pagina=opcao.destino_falha) }}">
+            {{ opcao.texto }}
+        </button>
+
+    {% elif opcao.tipo == 'minigame' %}
+        <button class="botao-escolha botao-minigame" 
+                data-nome-minigame="{{ opcao.nome_minigame }}"
+                data-url-sucesso="{{ url_for('livro_pagina', nome_da_historia=nome_da_historia, id_da_pagina=opcao.destino_sucesso) }}"
+                data-url-falha="{{ url_for('livro_pagina', nome_da_historia=nome_da_historia, id_da_pagina=opcao.destino_falha) }}">
+            {{ opcao.texto }}
+        </button>
+
+    {% elif opcao.tipo == 'redirect_menu' %}
+        <a href="{{ url_for('selecao_historia') }}" class="botao-escolha">{{ opcao.texto }}</a>
+
+    {% else %}
+        <a href="{{ url_for('livro_pagina', nome_da_historia=nome_da_historia, id_da_pagina=opcao.destino) }}" class="botao-escolha">{{ opcao.texto }}</a>
+    
+    {% endif %}
+
+{% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <div id="overlay-rolagem" class="hidden">
+        <div class="caixa-rolagem">
+            <h2 id="rolagem-nome-teste"></h2>
+            <p>Dificuldade: <span id="rolagem-dificuldade"></span></p>
+            <div id="rolagem-spinner" class="rolagem-spinner-grande">...</div>
+            <p id="rolagem-extra-info"></p>
+            <h3 id="rolagem-resultado-titulo" class="hidden"></h3>
+        </div>
+    </div>
+
+    <div id="overlay-combate" class="hidden">
+        <div class="area-combate-container">
+            <div id="zona-de-combate">
+                <div id="area-inimigos"></div>
+                <div id="area-jogadores"></div>
+            </div>
+            <div id="log-combate-container">
+                <div id="log-combate"></div>
+            </div>
+        </div>
+        <div id="combate-controles-rodape">
+            <div id="acoes-normais-container"></div>
+            <div id="encerrar-turno-container"></div>
+            <div id="acoes-bonus-container"></div>
+        </div>
+    </div>
+
+    <div id="overlay-rolagem-combate" class="hidden">
+        <div class="caixa-rolagem">
+            <h2 id="rolagem-combate-titulo"></h2>
+            <p id="rolagem-combate-atacante"></p>
+            <div id="rolagem-combate-spinner" class="rolagem-spinner-grande">...</div>
+            <p id="rolagem-combate-detalhes"></p>
+            <button id="botao-rolar-manual" class="botao-escolha hidden">Rolar!</button>
+            <h3 id="rolagem-combate-resultado" class="hidden"></h3>
+        </div>
+    </div>
+
+    <div id="overlay-minigame-sincronia" class="hidden">
+        <div class="minigame-container">
+            <h2 class="minigame-titulo">Ritual da Sincronia</h2>
+            <p class="minigame-instrucoes">
+                Use [Q] e [P] (ou toque nos círculos) para ajustar a velocidade.<br>
+                Pressione <strong>[ESPAÇO]</strong> ou o botão para tentar a Sincronização no momento exato!
+            </p>
+            <div class="minigame-arena">
+                <div class="ritual-circulo" id="circulo-q"><div class="ritual-alvo"></div><div class="ritual-foco" id="foco-q"></div></div>
+                <div class="ritual-circulo" id="circulo-p"><div class="ritual-alvo"></div><div class="ritual-foco" id="foco-p"></div></div>
+            </div>
+            <button id="minigame-confirmar-btn" class="minigame-botao">Sincronizar!</button>
+            <div class="minigame-feedback" id="minigame-feedback">Tentativas Restantes: 3</div>
+        </div>
+    </div>
+    
+    <div id="overlay-minigame-desfragmentacao" class="hidden">
+        <div class="caixa-minigame-desfrag">
+            <h2>A Desfragmentação do Vale</h2>
+            <p>Mova os blocos de corrupção para criar uma área contígua de terra fértil.</p>
+            <div class="container-minigame-desfrag">
+                <div id="grid-vale" class="grid-desfrag"></div>
+                <div class="sidebar-desfrag">
+                    <h3>Status</h3>
+                    <p>Movimentos Restantes:</p>
+                    <div id="movimentos-restantes" class="contador-desfrag">12</div>
+                    <p id="desfrag-status" class="status-minigame">Selecione um bloco de corrupção para mover.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay-minigame-grafo" class="hidden">
+        <div class="minigame-container" style="width: auto;">
+            <h2 class="minigame-titulo">Grafo do Vínculo Eterno</h2>
+            <p class="minigame-instrucoes" id="grafo-instrucoes"></p>
+            <canvas id="grafo-canvas" style="background-color: #2C3E50; border-radius: 10px;"></canvas>
+            <p class="minigame-feedback" id="grafo-feedback"></p>
+            <button id="grafo-confirmar-btn" class="minigame-botao">Confirmar Conexões</button>
+        </div>
+    </div>
+
+    <div class="party-card-container">
+        <div class="party-banner">
+            <h3 class="party-name">{{ party_name }}</h3>
+        </div>
+        <div class="party-members-container">
+            {% for personagem in party %}
+            {% set hp_percent = (personagem.hp_atual / personagem.classe.hp_max * 100)|int %}
+            <div class="character-card-small">
+                <div class="char-nome-small">{{ personagem.nome }}</div>
+                <div class="char-classe-small">{{ personagem.classe.nome_classe }} - Nv {{ personagem.nivel }}</div>
+                <div class="hp-bar">
+                    <div class="hp-bar-fill 
+                        {% if hp_percent <= 10 %} hp-low {% elif hp_percent <= 50 %} hp-medium {% else %} hp-high {% endif %}"
+                        style="width: {{ hp_percent }}%;">
+                    </div>
+                    <span class="hp-text">{{ personagem.hp_atual }}/{{ personagem.classe.hp_max }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+   <script id="game-data" type="application/json">
+        {
+            "party": {{ party|tojson }},
+            "pagina": {{ pagina|tojson }},
+            "nome_da_historia": "{{ nome_da_historia }}",
+            "dados_combate": {{ dados_combate|tojson }}
+        }
+    </script>
+    
+    <script src="/static/js/rolagem.js"></script>
+    <script src="/static/js/eventos_pagina.js"></script>
+    
+    <script src="/static/js/minigame_sincronia.js"></script>
+    <script src="/static/js/minigame_desfragmentacao.js"></script>
+    <script src="/static/js/minigame_grafo_deadlock.js"></script>
+    
+    {% if pagina.tipo == 'combate' %}
+        <script src="/static/js/combate.js"></script>
+    {% endif %}
+
+</body>
+</html>

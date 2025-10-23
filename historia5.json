@@ -1,0 +1,194 @@
+{
+    "metadata": {
+        "identificador": "historia5",
+        "titulo": "Capítulo 5: O Vínculo dos Titãs",
+        "premissa": "A fonte do Desvanecer é finalmente localizada: uma imensa Fratura na Trama da Existência. A única forma de selá-la é através de um ritual que exige o poder unificado de quatro Titãs Elementais ancestrais. No entanto, os heróis encontram os Titãs paralisados, presos em um impasse mágico: cada um está contido por uma força que só pode ser quebrada pelo poder do outro, criando um ciclo de dependência que os impede de agir. Com o mundo à beira do colapso, os jogadores precisam decifrar a natureza desse 'Vínculo Eterno' e encontrar uma forma de quebrar o impasse para que os Titãs possam ser libertados para o ritual final."
+    },
+    "paginas": [
+        {
+            "id": 0,
+            "texto": "Guiados pela convergência das linhas de magia, vocês chegam ao epicentro do Desvanecer: uma ferida na realidade, uma Fratura de caos borbulhante que rasga o céu. No centro de uma clareira devastada, quatro figuras colossais estão imóveis, envoltas em correntes de energia crepitante. Pyros, o Titã de Fogo; Hydor, a Titã da Água; Lithos, o Titã da Terra; e Aella, a Titã do Ar. Eles estão paralisados.",
+            "opcoes": [
+                { "texto": "Aproximar-se para investigar a condição dos Titãs.", "destino": 1 }
+            ]
+        },
+        {
+            "id": 1,
+            "texto": "Ao se aproximarem, um guardião espectral se materializa. 'Eles estão presos no Vínculo Eterno,' a aparição sussurra. 'Um impasse mágico. Para selar a Fratura, todos os quatro devem agir em uníssono. Mas um poder antigo os prendeu, explorando as próprias leis da dependência. Observem com atenção.'",
+            "opcoes": [
+                { "texto": "Analisar as correntes do Titã de Fogo, Pyros.", "destino": 2 }
+            ]
+        },
+        {
+            "id": 2,
+            "texto": "Vocês veem que Pyros, o Titã de Fogo, está contido por um 'Selo de Gelo Eterno'. O guardião explica: 'Este selo só pode ser quebrado pelo 'Coração da Montanha', um artefato de poder da Terra. Mas o artefato está com Lithos, o Titã da Terra.'",
+            "opcoes": [
+                { "texto": "Analisar o Titã da Terra, Lithos.", "destino": 3 }
+            ]
+        },
+        {
+            "id": 3,
+            "texto": "Lithos, o Titã da Terra, está aprisionado por 'Gavinhas de Vento Cortante'. 'Essas gavinhas,' diz o espectro, 'só podem ser desfeitas pelo 'Orbe das Tempestades', que pertence a Aella, a Titã do Ar.'",
+            "opcoes": [
+                { "texto": "Analisar a Titã do Ar, Aella.", "destino": 4 }
+            ]
+        },
+        {
+            "id": 4,
+            "texto": "Aella, a Titã do Ar, está presa dentro de uma 'Esfera de Água Infindável'. O guardião continua: 'A esfera só pode ser evaporada pelo 'Fogo Primordial', a essência de Pyros, o Titã de Fogo.'",
+            "opcoes": [
+                { "texto": "Analisar a Titã da Água, Hydor.", "destino": 5 }
+            ]
+        },
+        {
+            "id": 5,
+            "texto": "Finalmente, Hydor, a Titã da Água, está petrificada por 'Grilhões de Rocha Viva'. 'E, como vocês devem suspeitar,' conclui o guardião, 'esses grilhões só podem ser erodidos pela 'Correnteza Purificadora', a força de Hydor, a Titã da Água... Ah, espere. Isso não está certo. Deixe-me checar minhas anotações... Ah, sim. Os grilhões de Hydor só podem ser quebrados pela 'Correnteza Purificadora' de... Hydor. Não, isso também não. Droga. O ciclo é Fogo -> Terra -> Ar -> Água -> Fogo. Entenderam?'",
+            "opcoes": [
+                { "texto": "Entendemos o ciclo. É um impasse perfeito.", "destino": 6 }
+            ]
+        },
+        {
+            "id": 6,
+            "texto": "O guardião assente. 'Exato. Um Deadlock. Para que este impasse exista, quatro condições sagradas e terríveis foram atendidas. Conhecê-las é o primeiro passo para quebrá-las. Querem que eu as recite?'",
+            "opcoes": [
+                { "texto": "Sim, explique as Quatro Condições do Vínculo.", "destino": 7 }
+            ]
+        },
+        {
+            "id": 7,
+            "texto": "1. **Exclusão Mútua**: Cada selo é um recurso que só pode ser desfeito por um poder específico. O 'Coração da Montanha' não pode ser usado para quebrar as 'Gavinhas de Vento'.<br>2. **Posse e Espera**: Cada Titã 'possui' o poder para libertar o próximo, mas 'espera' ser libertado por outro.<br>3. **Não Preempção**: O poder de um Titã não pode ser tomado à força. Ele deve ser canalizado voluntariamente.<br>4. **Espera Circular**: Pyros espera por Lithos, que espera por Aella, que espera por Hydor, que espera por Pyros, fechando o ciclo.",
+            "opcoes": [
+                { "texto": "Precisamos visualizar isso para entender completamente.", "destino": 10 }
+            ]
+        },
+        {
+            "id": 10,
+            "texto": "'A sabedoria está em seus olhos,' diz o guardião, gesticulando para uma mesa de pedra lisa. 'A Mesa da Clarividência mostrará o fluxo de poder e dependência. Usem-na para modelar o impasse. Este é o seu 'Grafo de Alocação de Recursos'. Entendê-lo é a chave.'",
+            "opcoes": [
+                { "tipo": "minigame", "texto": "Iniciar o minigame do Grafo do Deadlock.", "nome_minigame": "grafo_deadlock", "destino_sucesso": 11, "destino_falha": 11 }
+            ]
+        },
+        {
+            "id": 11,
+            "texto": "A imagem na mesa se torna clara como cristal. Vocês agora veem o ciclo perfeitamente: os Titãs como círculos, os poderes como quadrados, as flechas mostrando quem possui o quê e quem espera por quem. A 'Espera Circular' é inegável. 'Agora vocês veem,' diz o espectro. 'Existem três caminhos para lidar com um deadlock. Cada um com seus próprios riscos e recompensas. A escolha definirá o destino do mundo.'",
+            "opcoes": [ { "texto": "Quais são os três caminhos?", "destino": 12 } ]
+        },
+        {
+            "id": 12,
+            "texto": "'O Caminho da **Prevenção** busca quebrar uma das quatro condições, alterando as regras do Vínculo. O Caminho da **Recuperação** aceita o impasse e busca forçar uma saída, mesmo que a um custo terrível. E o Caminho da **Evitação** é o mais sutil: gerenciar recursos com cuidado para nunca permitir que o impasse se complete.'",
+            "opcoes": [
+                { "texto": "[Prevenção] Vamos encontrar uma forma de quebrar a Espera Circular.", "destino": 20 },
+                { "texto": "[Recuperação] O impasse já existe. Vamos forçar uma solução agora.", "destino": 30 },
+                { "texto": "[Evitação] Talvez possamos alocar um poder externo para resolver isso em segurança.", "destino": 40 }
+            ]
+        },
+        {
+            "id": 20,
+            "texto": "Vocês escolheram a Prevenção. O guardião aponta para uma antiga estela. 'Existe uma metarruna, a 'Runa da Ordem Alternativa'. Ela não quebra um selo, mas pode reescrever a qual poder ele responde. Se conseguirem ativá-la, poderão quebrar a 'Espera Circular', fazendo com que um selo responda a um poder diferente, que não esteja no ciclo.' A estela é um quebra-cabeça complexo de runas deslizantes.",
+            "opcoes": [
+                { "tipo": "teste", "texto": "Resolver o quebra-cabeça da estela.", "nome_teste": "Teste de Inteligência (Investigação)", "dificuldade": 17, "destino_sucesso": 21, "destino_falha": 22 }
+            ]
+        },
+        {
+            "id": 21,
+            "texto": "SUCESSO: As runas se alinham! Vocês reescrevem a afinidade do 'Selo de Gelo Eterno' de Pyros. Ele agora não é mais vulnerável ao poder da Terra, mas ao poder do Ar. O ciclo está quebrado! Aella pode libertar Pyros, que liberta Hydor, e assim por diante. O impasse começa a se desfazer!",
+            "opcoes": [ { "texto": "Preparem-se!", "destino": 50 } ]
+        },
+        {
+            "id": 22,
+            "texto": "FALHA: Vocês tentam, mas a lógica rúnica é complexa demais. A estela sobrecarrega e se apaga. 'A chance foi perdida,' lamenta o guardião. 'A Prevenção falhou. Vocês devem escolher outro caminho.'",
+            "opcoes": [ { "texto": "Voltar à escolha dos caminhos.", "destino": 12 } ]
+        },
+        {
+            "id": 30,
+            "texto": "Vocês escolheram a Recuperação. 'Uma escolha ousada,' diz o espectro. 'Para se recuperar de um deadlock, às vezes é preciso tomar medidas drásticas. Existem duas formas: abortar um processo para liberar seus recursos ou tomar um recurso à força.'",
+            "opcoes": [
+                { "texto": "Abortar um processo? Isso significa... sacrificar um Titã?", "destino": 31 },
+                { "texto": "Tomar um recurso à força? Podemos fazer isso?", "destino": 32 }
+            ]
+        },
+        {
+            "id": 31,
+            "texto": "O guardião fica sombrio. 'Sim. Ao destruir um dos Titãs, seu poder seria liberado caoticamente, quebrando o selo do próximo no ciclo. Os três restantes poderiam então agir. Mas o ritual de selamento seria mais fraco, e o mundo pagaria um preço pela perda de um de seus pilares. É uma vitória... imperfeita.' Esta é uma escolha terrível, com consequências permanentes.",
+            "opcoes": [
+                { "texto": "[SACRIFICAR] Destruir um Titã pelo bem maior.", "destino": 33 },
+                { "texto": "Não. Deve haver outro jeito.", "destino": 30 }
+            ]
+        },
+        {
+            "id": 32,
+            "texto": "'A condição de 'Não Preempção' é forte,' diz o guardião. 'Mas lendas falam de um artefato, a 'Adaga do Paradoxo', que pode 'roubar' temporariamente um recurso. Com ela, vocês poderiam tomar o poder de um Titã sem matá-lo, usá-lo para quebrar um selo e iniciar a cascata. A adaga está escondida neste santuário, protegida por uma armadilha mortal.'",
+            "opcoes": [
+                { "tipo": "teste", "texto": "Enfrentar a armadilha e buscar a adaga.", "nome_teste": "Teste de Destreza (Ladinagem)", "dificuldade": 18, "destino_sucesso": 34, "destino_falha": 35 }
+            ]
+        },
+        {
+            "id": 33,
+            "texto": "Com pesar, vocês focam seu poder em Aella, a mais etérea dos Titãs. Ela se desfaz em uma tempestade de vento e dor, e seu 'Orbe das Tempestades' explode, libertando Lithos. O ciclo se desfaz, mas o céu chora pela perda. Os Titãs restantes olham para vocês com uma mistura de gratidão e tristeza.",
+            "opcoes": [ { "texto": "O que nós fizemos...", "destino": 50 } ]
+        },
+        {
+            "id": 34,
+            "texto": "SUCESSO: Vocês desviam de lâminas, saltam sobre fossos e desativam glifos de pressão no último segundo. Em um pedestal, vocês encontram a Adaga do Paradoxo. Com ela em mãos, vocês extraem o 'Fogo Primordial' de Pyros e o usam para libertar Hydor. O ciclo se quebra, e a adaga se desfaz em pó.",
+            "opcoes": [ { "texto": "O impasse foi quebrado!", "destino": 50 } ]
+        },
+        {
+            "id": 35,
+            "texto": "FALHA: Um passo em falso e o chão cede! Vocês caem em um poço de espinhos de obsidiana, escapando por pouco da morte. A câmara da adaga está selada para sempre. 'A Preempção de Recursos não é mais uma opção,' diz o guardião. 'Escolham outro caminho.'",
+            "opcoes": [ { "texto": "Voltar à escolha dos caminhos.", "destino": 12 } ]
+        },
+        {
+            "id": 40,
+            "texto": "Vocês escolheram a Evitação. 'O caminho do estratega,' diz o espectro. 'Vocês não podem quebrar o ciclo, mas podem 'evitá-lo' ao introduzir novos recursos e alocá-los de forma segura. Existe uma fonte de 'Essência Primordial' neutra neste local. Vocês podem usá-la como um 'banqueiro', oferecendo poder aos Titãs. Mas a sequência de alocação deve ser perfeita para garantir que um 'estado seguro' seja sempre mantido. Se alocarem errado, a essência pode se corromper e fortalecer o Vínculo.'",
+            "opcoes": [ { "texto": "Iniciar o Ritual de Alocação Segura.", "destino": 41 } ]
+        },
+        {
+            "id": 41,
+            "texto": "Vocês têm 6 unidades de Essência Primordial. Baelin, de alguma forma, conseguiu consertar uma pedra vidente e os contata. 'Análise rápida! Pyros precisa de 4 unidades de poder para sobrecarregar seu selo. Lithos precisa de 5. Aella precisa de 2. Hydor precisa de 3. Como vocês distribuirão a Essência para garantir que todos possam ser libertados em sequência, sem criar um novo impasse?'",
+            "opcoes": [
+                { "texto": "Dar 2 para Aella, depois usar o poder dela para libertar os outros.", "destino": 42 },
+                { "texto": "Distribuir igualmente, 1.5 para cada um.", "destino": 43 },
+                { "texto": "Dar tudo para Pyros, o mais forte.", "destino": 43 }
+            ]
+        },
+        {
+            "id": 42,
+            "texto": "SUCESSO: Uma escolha brilhante! Vocês alocam 2 unidades para Aella. Ela se liberta! Com seu poder, ela liberta Lithos. O poder de Lithos liberta Pyros. O poder de Pyros liberta Hydor. A sequência é perfeita, um 'estado seguro' foi mantido do início ao fim. O impasse se desfaz sem perdas.",
+            "opcoes": [ { "texto": "A lógica prevaleceu!", "destino": 50 } ]
+        },
+        {
+            "id": 43,
+            "texto": "FALHA: A alocação foi insegura! A Essência que vocês deram não foi suficiente para libertar nenhum Titã completamente. A energia para no meio do caminho, se corrompe e é absorvida pelos selos, fortalecendo o Vínculo Eterno! 'A Evitação falhou!' lamenta o guardião. 'Vocês devem escolher outro caminho!'",
+            "opcoes": [ { "texto": "Voltar à escolha dos caminhos.", "destino": 12 } ]
+        },
+        {
+            "id": 50,
+            "tipo": "combate",
+            "texto_pre_combate": "No momento em que o Vínculo Eterno se quebra, a energia caótica do deadlock não se dissipa. Ela se coalesce, dando forma a um ser aterrorizante: a ANOMALIA DO VÍNCULO, a personificação do impasse. Quatro membros disformes, cada um brilhando com um poder elemental, giram em um ciclo sem fim. 'A ordem não será restaurada!' ruge a criatura. 'O impasse... deve... ser... eterno!'",
+            "inimigos": [ { "id_inimigo": "anomalia_do_vinculo", "nome_unico": "Anomalia do Vínculo" } ],
+            "destino_vitoria": 51,
+            "destino_derrota": 99
+        },
+        {
+            "id": 51,
+            "texto": "Com a Anomalia derrotada, a última defesa da Fratura se foi. Os quatro Titãs, agora livres e agindo em uníssono, voltam-se para a ferida no céu. Eles erguem suas mãos e um poder inimaginável flui, tecendo a realidade de volta. A Fratura se fecha com um som de vidro se consertando, e a luz do sol volta a banhar a terra.",
+            "opcoes": [ { "texto": "O mundo está salvo.", "destino": 52 } ]
+        },
+        {
+            "id": 52,
+            "texto": "O guardião espectral se curva. 'Vocês não apenas salvaram nosso mundo, mas dominaram um dos conceitos mais complexos da existência. Vocês viram o impasse, entenderam suas condições, e escolheram um caminho para a solução. A Trama se lembrará de seus feitos.' Os Titãs, antes de retornarem ao seu sono, lhes concedem uma bênção, fortalecendo seus corpos e almas. O Desvanecer acabou. FIM.",
+            "opcoes": [],
+            "unlocks": "endgame"
+        },
+        {
+            "id": 99,
+            "texto": "A realidade se desfaz ao seu redor. Sua falha em resolver o impasse condenou os Titãs e, com eles, o mundo. O Desvanecer consome tudo, e suas existências são apagadas pela estática de um sistema que entrou em colapso. FIM DA LINHA.",
+            "opcoes": [
+                { 
+            "tipo": "redirect_menu", 
+            "texto": "Voltar à Seleção de Histórias" 
+        }
+            ]
+        }
+    ]
+}

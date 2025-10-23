@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crônicas de Eldoria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/estilo.css">
+</head>
+<body class="body-menu-v2">
+
+    <div class="scroll-container">
+        <div class="scroll-content">
+            <header class="scroll-header">
+                <h1 class="game-title-v2">Crônicas de Eldoria</h1>
+                <p class="subtitle">Um chamado à aventura ressoa por estas terras...</p>
+            </header>
+            
+            <nav class="scroll-nav">
+                <a href="{{ url_for('selecao_historia') }}" class="menu-button-v2">
+                    <span class="icon">📜</span> Iniciar Nova Aventura
+                </a>
+                
+                {% if save_exists %}
+                    <a href="{{ url_for('continuar_jogo') }}" class="menu-button-v2">
+                        <span class="icon">📖</span> Continuar Aventura
+                    </a>
+                {% else %}
+                    <button class="menu-button-v2 disabled" disabled>
+                        <span class="icon">📖</span> Continuar Aventura
+                    </button>
+                {% endif %}
+
+                <a href="{{ url_for('sair') }}" class="menu-button-v2">
+                    <span class="icon">🚪</span> Sair do Reino
+                </a>
+            </nav>
+
+            <div class="wax-seal">E</div>
+        </div>
+    </div>
+
+</body>
+</html>

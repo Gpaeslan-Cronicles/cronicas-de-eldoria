@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Premissa da Aventura</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/estilo.css">
+</head>
+<body class="body-menu-v2">
+
+    <div class="scroll-container">
+        <div class="scroll-content">
+            <header class="scroll-header">
+                <h1 class="game-title-v2">Premissa</h1>
+            </header>
+            
+            <div class="premissa-texto">
+                <p>{{ premissa_texto }}</p>
+            </div>
+
+            <nav class="scroll-nav">
+                <a href="{{ url_for('livro_pagina', nome_da_historia=nome_da_historia, id_da_pagina=0) }}" class="menu-button-v2">
+                    <span class="icon">📜</span> Iniciar Aventura
+                </a>
+            </nav>
+
+        </div>
+    </div>
+
+</body>
+</html>

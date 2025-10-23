@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criação de Aventureiro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/estilo.css">
+</head>
+<body class="body-dossier">
+
+    <div class="creation-dossier">
+        <header class="dossier-header">
+            <h3>Registro da Guilda</h3>
+            <h1>Ficha do Aventureiro</h1>
+            <h2>(Recruta {{ player_num }} de {{ num_jogadores }})</h2>
+        </header>
+        
+        <form id="creation-form" action="{{ url_for('processar_personagem') }}" method="post">
+            <input type="hidden" name="player_num" value="{{ player_num }}">
+
+            <div class="form-group-stylized">
+                <label for="nome_personagem">NOME:</label>
+                <input type="text" id="nome_personagem" name="nome_personagem" placeholder="Escreva o nome do seu herói..." required autocomplete="off">
+            </div>
+
+            <div class="form-group-stylized">
+                <label>CLASSE:</label>
+                <div class="class-selection-container">
+    <div class="class-card" data-class="guerreiro">
+        <div class="class-art">
+            <div class="icon-guerreiro">
+                <div class="shield"></div>
+                <div class="sword"></div>
+            </div>
+        </div>
+        <h3>Guerreiro</h3>
+        <p>Mestre das armas, inabalável na linha de frente.</p>
+    </div>
+
+    <div class="class-card" data-class="mago">
+        <div class="class-art">
+            <div class="icon-mago">
+                <div class="orb"></div>
+                <div class="swirl s1"></div>
+                <div class="swirl s2"></div>
+                <div class="swirl s3"></div>
+            </div>
+        </div>
+        <h3>Mago</h3>
+        <p>Manipulador das energias arcanas que moldam o mundo.</p>
+    </div>
+
+    <div class="class-card" data-class="ladino">
+        <div class="class-art">
+            <div class="icon-ladino">
+                <div class="dagger d1"></div>
+                <div class="dagger d2"></div>
+            </div>
+        </div>
+        <h3>Ladino</h3>
+        <p>Uma sombra com uma adaga, mestre da furtividade.</p>
+    </div>
+</div>
+<input type="hidden" id="classe_escolhida" name="classe" value="" required>
+                <input type="hidden" id="classe_escolhida" name="classe" value="" required>
+            </div>
+
+            <button type="submit" id="submit-button" class="botao-iniciar-v2" disabled>Confirmar Recruta</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const classCards = document.querySelectorAll('.class-card');
+            const hiddenInput = document.getElementById('classe_escolhida');
+            const submitButton = document.getElementById('submit-button');
+
+            classCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    // Remove a seleção de outros cards
+                    classCards.forEach(c => c.classList.remove('selected'));
+                    
+                    // Adiciona a seleção ao card clicado
+                    card.classList.add('selected');
+                    
+                    // Atualiza o valor do input escondido
+                    const selectedClass = card.dataset.class;
+                    hiddenInput.value = selectedClass;
+
+                    // Habilita o botão de submissão
+                    submitButton.disabled = false;
+                });
+            });
+
+            // Impede o envio do formulário com a tecla Enter
+            document.getElementById('creation-form').addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
