@@ -302,9 +302,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 desenharInterfaceJogador(jogador);
                 break;
             case 'mago_feitico_extra':
-                log(`✨ ${jogador.nome} acelera sua magia! Escolha um feitiço.`);
-                desenharInterfaceJogador(jogador);
-                break;
+    log(`✨ ${jogador.nome} acelera sua magia! Escolha um feitiço.`);
+    acao_usada = false; // <-- A CORREÇÃO MÁGICA!
+    desenharInterfaceJogador(jogador); // Agora vai funcionar!
+    break;
             case 'ladino_ocultar':
                 jogador.status_effects.push({ nome: 'oculto', duracao: 2 });
                 log(`🏹 ${jogador.nome} se esconde nas sombras. O próximo ataque contra ele irá errar!`);

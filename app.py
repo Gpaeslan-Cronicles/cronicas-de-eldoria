@@ -7,7 +7,7 @@ from flask import Flask, render_template, jsonify, abort, redirect, url_for, ses
 app = Flask(__name__)
 # IMPORTANTE: Mude esta chave para algo único e secreto!
 app.secret_key = 'sua-chave-secreta-muito-dificil-de-adivinhar-mude-isso'
-SAVE_FILE = 'save_data.json'
+#SAVE_FILE = 'save_data.json'
 
 # --- CARREGAMENTO DAS BIBLIOTECAS DO JOGO ---
 
@@ -61,16 +61,14 @@ INIMIGOS_DB = load_enemies()
 
 # --- FUNÇÕES DE SAVE/LOAD PERSISTENTE ---
 def load_game_data():
-    """Lê o progresso geral do jogador do arquivo de save."""
-    if not os.path.exists(SAVE_FILE):
-        return {'unlocked_stories': ['historia1']}
-    with open(SAVE_FILE, 'r', encoding='utf-8') as f:
-        return json.load(f)
+    """Lê o progresso de desbloqueio da SESSÃO do jogador."""
+    # Se 'game_data' não existir na sessão, começa um novo com historia1 desbloqueada.
+    return session.get('game_data', {'unlocked_stories': ['historia1']})
 
 def save_game_data(data):
-    """Salva o progresso geral do jogador."""
-    with open(SAVE_FILE, 'w', encoding='utf-8') as f:
-        json.dump(data, f, indent=4)
+    """Salva o progresso de desbloqueio na SESSÃO do jogador."""
+    session['game_data'] = data
+    session.modified = True #
 
 def carregar_historia(nome_arquivo):
     """Carrega a estrutura completa de uma história."""
@@ -107,7 +105,7 @@ def selecao_historia():
                     stories.append(data['metadata'])
             except (KeyError, json.JSONDecodeError):
                 continue
-
+    stories.sort(key=lambda s: s['identificador'])
     return render_template('selecao_historia.html', stories=stories, unlocked_stories=unlocked_stories_ids)
 
 @app.route('/continuar')
