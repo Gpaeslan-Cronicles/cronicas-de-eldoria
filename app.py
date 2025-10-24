@@ -14,7 +14,7 @@ app.secret_key = 'sua-chave-secreta-muito-dificil-de-adivinhar-mude-isso'
 # Definição das propriedades de cada classe
 CLASSES = {
     'guerreiro': {
-        'nome_classe': 'Guerreiro', 'hp_max': 45,
+        'nome_classe': 'Guerreiro', 'hp_max': 55,
         'habilidades': [
             {'id': 'ataque_poderoso', 'nome': 'Ataque Poderoso', 'dado_dano': '1d10+3', 'tipo': 'ataque', 'alvos': 'unico'}
         ],
@@ -24,7 +24,7 @@ CLASSES = {
         ]
     },
     'mago': {
-        'nome_classe': 'Mago', 'hp_max': 20,
+        'nome_classe': 'Mago', 'hp_max': 30,
         'habilidades': [
             {'id': 'bola_de_fogo', 'nome': 'Bola de Fogo', 'dado_dano': '2d6', 'tipo': 'magia', 'alvos': 'multiplos'},
             {'id': 'raio_de_gelo', 'nome': 'Raio de Gelo', 'dado_dano': '1d8', 'tipo': 'magia', 'alvos': 'unico'}
@@ -36,7 +36,7 @@ CLASSES = {
         'slots_magia': 4
     },
     'ladino': {
-        'nome_classe': 'Ladino', 'hp_max': 30,
+        'nome_classe': 'Ladino', 'hp_max': 40,
         'habilidades': [
             {'id': 'ataque_furtivo', 'nome': 'Ataque Furtivo', 'dado_dano': '1d6+4', 'tipo': 'ataque', 'alvos': 'unico', 'condicao': 'alvo_distraido'}
         ],
@@ -89,7 +89,6 @@ def menu_principal():
 @app.route('/selecao-historia')
 def selecao_historia():
     """Lê todos os arquivos de história, extrai os títulos e monta a tela de seleção."""
-    session.clear()
     game_data = load_game_data()
     unlocked_stories_ids = game_data.get('unlocked_stories', ['historia1'])
     
@@ -129,10 +128,15 @@ def sair():
 # --- ROTAS DE CRIAÇÃO DA PARTIDA E PERSONAGENS ---
 @app.route('/configurar-partida/<nome_da_historia>')
 def configurar_partida(nome_da_historia):
-    """Valida se a história está desbloqueada e exibe a tela de configuração."""
     game_data = load_game_data()
-    if nome_da_historia not in game_data.get('unlocked_stories', ['historia1']):
+    unlocked_stories = game_data.get('unlocked_stories', ['historia1'])
+    session.clear()
+
+    session['game_data'] = {'unlocked_stories': unlocked_stories}
+    
+    if nome_da_historia not in unlocked_stories:
         return redirect(url_for('selecao_historia'))
+        
     return render_template('configurar_partida.html', nome_da_historia=nome_da_historia)
 
 @app.route('/iniciar-criacao', methods=['POST'])

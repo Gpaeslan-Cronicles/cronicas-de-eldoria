@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&family=Uncial+Antiqua&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/estilo.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
 </head>
 <body class="body-dossier">
@@ -25,32 +25,35 @@
             {% if pagina.tipo != 'combate' and pagina.opcoes %}
                 {% for opcao in pagina.opcoes %}
     
-    {% if opcao.tipo == 'teste' %}
-        <button class="botao-escolha botao-teste"
-                data-nome-teste="{{ opcao.nome_teste }}"
-                data-dificuldade="{{ opcao.dificuldade }}"
-                data-url-sucesso="{{ url_for('livro_pagina', nome_da_historia=nome_da_historia, id_da_pagina=opcao.destino_sucesso) }}"
-                data-url-falha="{{ url_for('livro_pagina', nome_da_historia=nome_da_historia, id_da_pagina=opcao.destino_falha) }}">
-            {{ opcao.texto }}
-        </button>
+                    {% if opcao.tipo == 'teste' %}
+                        <button class="botao-escolha botao-teste"
+                                data-nome-teste="{{ opcao.nome_teste }}"
+                                data-dificuldade="{{ opcao.dificuldade }}"
+                                data-url-sucesso="{{ url_for('livro_pagina', nome_da_historia=nome_da_historia, id_da_pagina=opcao.destino_sucesso) }}"
+                                data-url-falha="{{ url_for('livro_pagina', nome_da_historia=nome_da_historia, id_da_pagina=opcao.destino_falha) }}">
+                            {{ opcao.texto }}
+                        </button>
 
-    {% elif opcao.tipo == 'minigame' %}
-        <button class="botao-escolha botao-minigame" 
-                data-nome-minigame="{{ opcao.nome_minigame }}"
-                data-url-sucesso="{{ url_for('livro_pagina', nome_da_historia=nome_da_historia, id_da_pagina=opcao.destino_sucesso) }}"
-                data-url-falha="{{ url_for('livro_pagina', nome_da_historia=nome_da_historia, id_da_pagina=opcao.destino_falha) }}">
-            {{ opcao.texto }}
-        </button>
+                    {% elif opcao.tipo == 'minigame' %}
+                        <button class="botao-escolha botao-minigame" 
+                                data-nome-minigame="{{ opcao.nome_minigame }}"
+                                data-url-sucesso="{{ url_for('livro_pagina', nome_da_historia=nome_da_historia, id_da_pagina=opcao.destino_sucesso) }}"
+                                data-url-falha="{{ url_for('livro_pagina', nome_da_historia=nome_da_historia, id_da_pagina=opcao.destino_falha) }}">
+                            {{ opcao.texto }}
+                        </button>
 
-    {% elif opcao.tipo == 'redirect_menu' %}
-        <a href="{{ url_for('selecao_historia') }}" class="botao-escolha">{{ opcao.texto }}</a>
+                    {% elif opcao.tipo == 'redirect_menu' %}
+                        <a href="{{ url_for('selecao_historia') }}" class="botao-escolha">{{ opcao.texto }}</a>
 
-    {% else %}
-        <a href="{{ url_for('livro_pagina', nome_da_historia=nome_da_historia, id_da_pagina=opcao.destino) }}" class="botao-escolha">{{ opcao.texto }}</a>
-    
-    {% endif %}
+                    {% elif opcao.tipo == 'redirect' %}
+                        <a href="{{ url_for(opcao.url) }}" class="botao-escolha">{{ opcao.texto }}</a>
 
-{% endfor %}
+                    {% else %}
+                        <a href="{{ url_for('livro_pagina', nome_da_historia=nome_da_historia, id_da_pagina=opcao.destino) }}" class="botao-escolha">{{ opcao.texto }}</a>
+                    
+                    {% endif %}
+
+                {% endfor %}
             {% endif %}
         </div>
     </div>
@@ -166,15 +169,15 @@
         }
     </script>
     
-    <script src="/static/js/rolagem.js"></script>
-    <script src="/static/js/eventos_pagina.js"></script>
+    <script src="{{ url_for('static', filename='js/rolagem.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/eventos_pagina.js') }}"></script>
     
-    <script src="/static/js/minigame_sincronia.js"></script>
-    <script src="/static/js/minigame_desfragmentacao.js"></script>
-    <script src="/static/js/minigame_grafo_deadlock.js"></script>
+    <script src="{{ url_for('static', filename='js/minigame_sincronia.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/minigame_desfragmentacao.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/minigame_grafo_deadlock.js') }}"></script>
     
     {% if pagina.tipo == 'combate' %}
-        <script src="/static/js/combate.js"></script>
+        <script src="{{ url_for('static', filename='js/combate.js') }}"></script>
     {% endif %}
 
 </body>
