@@ -78,6 +78,15 @@ def carregar_historia(nome_arquivo):
             return data # <-- Mude aqui para retornar o objeto completo
     except (FileNotFoundError, KeyError):
         return None
+    
+def carregar_inimigos():
+    """Carrega os dados de todos os inimigos do arquivo JSON."""
+    try:
+        with open('data/inimigos.json', 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        # Retorna um dicionário vazio se o arquivo não existir ou for inválido
+        return {}
 
 # --- ROTAS DO MENU PRINCIPAL E FLUXO INICIAL ---
 @app.route('/')
