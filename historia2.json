@@ -177,17 +177,18 @@
             ]
         },
         {
-            "id": 40,
-            "texto": "Na câmara do Coração, o herói escolhido se despede e sua forma se torna translúcida. Lyra aponta para o cristal pulsante. 'O espaço está livre, mas não está limpo. É um bloco de memória fragmentada. Vocês precisam alocar a essência de Kael nos espaços vazios, desfragmentando a área para que a alma dele se encaixe perfeitamente. Um erro, e a alocação falhará, corrompendo ambas as almas.'",
-            "opcoes": [
-                {
-                    "tipo": "minigame_memoria",
-                    "texto": "Iniciar o Minigame 'Tear da Memória'.",
-                    "destino_sucesso": 50,
-                    "destino_falha": 51
-                }
-            ]
-        },
+    "id": 40,
+    "texto": "Na câmara do Coração, o herói escolhido se despede e sua forma se torna translúcida. Lyra aponta para o cristal pulsante. 'O espaço está livre, mas não está limpo. É um bloco de memória fragmentada. Vocês precisam alocar a essência de Kael nos espaços vazios, desfragmentando a área para que a alma dele se encaixe perfeitamente. Um erro, e a alocação falhará, corrompendo ambas as almas.'",
+    "opcoes": [
+        {
+            "tipo": "minigame",
+            "nome_minigame": "memoria",
+            "texto": "Iniciar o Minigame 'Tear da Memória'.",
+            "destino_sucesso": 50,
+            "destino_falha": 51
+        }
+    ]
+},
         {
             "id": 50,
             "texto": "SUCESSO: Como mestres tecelões, vocês encaixam cada fragmento da alma de Kael nos espaços vazios do Coração. O cristal brilha com uma luz estável e poderosa, e a figura de um homem com olhos de estrategista se materializa. 'Kael, o Tático, reportando-se,' ele diz, sua voz ressoando com autoridade. A névoa lá fora recua visivelmente.",

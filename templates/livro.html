@@ -138,6 +138,28 @@
         </div>
     </div>
 
+    <div id="overlay-minigame-memoria" class="hidden">
+    <div class="caixa-minigame-memoria">
+        <h2>Tear da Memória</h2>
+        <div class="container-minigame-memoria">
+            <div id="grid-memoria" class="grid-memoria-container"></div>
+            <div class="sidebar-memoria">
+                <h3>Próximo Fragmento</h3>
+                <div id="proximo-fragmento" class="preview-fragmento"></div>
+                <h3>Progresso</h3>
+                <div class="barra-container">
+                    <div id="barra-progresso" class="barra-fill progresso"></div>
+                </div>
+                <h3>Fragmentação</h3>
+                <div class="barra-container">
+                    <div id="barra-fragmentacao" class="barra-fill fragmentacao"></div>
+                </div>
+                <p id="minigame-memoria-status" class="status-minigame"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
     <div class="party-card-container">
         <div class="party-banner">
             <h3 class="party-name">{{ party_name }}</h3>
@@ -174,6 +196,7 @@
     
     <script src="{{ url_for('static', filename='js/minigame_sincronia.js') }}"></script>
     <script src="{{ url_for('static', filename='js/minigame_desfragmentacao.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/minigame_memoria.js') }}"></script>
     <script src="{{ url_for('static', filename='js/minigame_grafo_deadlock.js') }}"></script>
     
     {% if pagina.tipo == 'combate' %}
