@@ -2006,3 +2006,13 @@ body {
 .fragmento-2 { background-color: #9b59b6; } .fragmento-3 { background-color: #e67e22; }
 .fragmento-4 { background-color: #1abc9c; } .fragmento-5 { background-color: #e74c3c; }
 .fragmento-6 { background-color: #2ecc71; }
+#overlay-minigame-memoria,
+#overlay-minigame-sincronia,
+#overlay-minigame-desfragmentacao,
+#overlay-minigame-grafo {
+    /* 1. Garante que o minigame fique na camada mais alta */
+    z-index: 2000;
+
+    /* 2. Empurra o conteúdo para cima, longe do rodapé */
+    padding-bottom: 150px;
+}
