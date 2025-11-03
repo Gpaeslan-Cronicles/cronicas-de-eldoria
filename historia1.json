@@ -114,22 +114,17 @@
             }
         },
         {
-            "id": 15,
-            "texto": "O salão principal é um caos de soldados se armando. No centro, de pé sobre um mapa manchado de vinho, está o General Kael. Um homem brutal com um machado do tamanho de um anão. 'Então os cães do velho Rei vieram morrer,' ele rosna. 'Vou terminar seus processos pessoalmente.'",
-            "opcoes": [
-                {
-                    "tipo": "combate",
-                    "texto_pre_combate": "A batalha pelo comando começa!",
-                    "inimigos": [
-                        { "id_inimigo": "soldado_rebelde", "nome_unico": "Guarda de Elite de Kael" },
-                        { "id_inimigo": "general_kael", "nome_unico": "General Kael, o Executor" },
-                        { "id_inimigo": "soldado_rebelde", "nome_unico": "Guarda de Elite de Kael" }
-                    ],
-                    "destino_vitoria": 16,
-                    "destino_derrota": 99
-                }
-            ]
-        },
+    "id": 15,
+    "tipo": "combate",
+    "texto_pre_combate": "O salão principal é um caos de soldados se armando. No centro, de pé sobre um mapa manchado de vinho, está o General Kael. Um homem brutal com um machado do tamanho de um anão. 'Então os cães do velho Rei vieram morrer,' ele rosna. 'Vou terminar seus processos pessoalmente.'",
+    "inimigos": [
+        { "id_inimigo": "soldado_rebelde", "nome_unico": "Guarda de Elite de Kael" },
+        { "id_inimigo": "general_kael", "nome_unico": "General Kael, o Executor" },
+        { "id_inimigo": "soldado_rebelde", "nome_unico": "Guarda de Elite de Kael" }
+    ],
+    "destino_vitoria": 16,
+    "destino_derrota": 99
+},
         {
             "id": 16,
             "texto": "Kael cai de joelhos, derrotado. 'O Lorde Veridian... ele lhes prometeu ordem... um sistema perfeito...' ele murmura antes de tombar. Com o general derrotado, a cadeia de comando rebelde se quebra. As tropas, sem um líder, se rendem ou fogem. A primeira grande vitória é sua.",

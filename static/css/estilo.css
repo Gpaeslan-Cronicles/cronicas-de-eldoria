@@ -148,10 +148,14 @@ body {
 /* Adicione este código ao final de static/css/estilo.css */
 
 .pagina-interativa {
-    flex-grow: 1;
+    flex-grow: 1; /* Faz a área de texto ocupar o espaço disponível */
     font-size: 1.2rem;
     line-height: 1.8;
     text-align: justify;
+    
+    /* --- CORREÇÃO ADICIONADA AQUI --- */
+    overflow-y: auto; /* Cria uma barra de rolagem vertical SE o texto for muito longo */
+    padding-right: 15px; /* Adiciona um espaço para a barra de rolagem não cobrir o texto */
 }
 
 .opcoes-escolha {

@@ -184,7 +184,13 @@
         {
             "id": 52,
             "texto": "De volta à capital, vocês são recebidos como os 'Restauradores da Corrente'. A General Elara e o Rei Theron agradecem por terem consertado o sistema nervoso do reino. Baelin, o engenheiro anão, envia a vocês um presente: ferramentas de precisão magistrais e uma promessa de cerveja anã por toda a vida. A Trama está um pouco mais segura, mas a ameaça do Desvanecer ainda paira. FIM DO CAPÍTULO.",
-            "opcoes": [],
+            "opcoes": [
+                { 
+                    "texto": "Retornar à Seleção de Crônicas", 
+                    "tipo": "redirect",
+                    "url": "selecao_historia"
+                }
+            ],
             "unlocks": "historia5"
         },
         {

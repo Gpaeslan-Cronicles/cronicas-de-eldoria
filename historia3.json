@@ -195,7 +195,8 @@
             "texto": "Rhiannon os leva a um altar de pedra com vista para todo o vale, agora quase completamente purificado. 'A terra está quase pronta. Mas antes de plantarmos a Semente-Coração, precisamos fazer a desfragmentação final. Os últimos focos de corrupção devem ser movidos para consolidar o espaço livre. Esta é a otimização final.'",
             "opcoes": [
                 {
-                    "tipo": "minigame_desfragmentacao",
+                    "tipo": "minigame",
+                    "nome_minigame": "desfragmentacao",
                     "texto": "Iniciar a Desfragmentação do Vale.",
                     "destino_sucesso": 50,
                     "destino_falha": 99

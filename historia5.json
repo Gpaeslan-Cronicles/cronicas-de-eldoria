@@ -177,7 +177,13 @@
         {
             "id": 52,
             "texto": "O guardião espectral se curva. 'Vocês não apenas salvaram nosso mundo, mas dominaram um dos conceitos mais complexos da existência. Vocês viram o impasse, entenderam suas condições, e escolheram um caminho para a solução. A Trama se lembrará de seus feitos.' Os Titãs, antes de retornarem ao seu sono, lhes concedem uma bênção, fortalecendo seus corpos e almas. O Desvanecer acabou. FIM.",
-            "opcoes": [],
+            "opcoes": [
+                { 
+                    "texto": "Retornar à Seleção de Crônicas", 
+                    "tipo": "redirect",
+                    "url": "selecao_historia"
+                }
+            ],
             "unlocks": "endgame"
         },
         {
