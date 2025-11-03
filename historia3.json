@@ -68,16 +68,13 @@
         },
         {
             "id": 13,
-            "texto": "A terra morta da Cicatriz Central ferve e dela se ergue um Golem de Terra Pútrida, uma montanha de rocha e agonia. 'O guardião de um 'arquivo' grande e profundamente corrompido,' alerta Rhiannon. 'Sua destruição é a chave!'",
-            "opcoes": [
-                { 
-                    "tipo": "combate", "texto": "Lutar contra o Golem!",
-                    "inimigos": {
-                        "inimigos_lista": ["golem_putrido"],
-                        "destino_vitoria": 15, "destino_derrota": 99
-                    }
-                }
-            ]
+            "tipo": "combate",
+            "texto_pre_combate": "A terra morta da Cicatriz Central ferve e se ergue, formando um Golem de Terra Pútrida para defender a corrupção!",
+            "inimigos": [
+                { "id_inimigo": "golem_putrido", "nome_unico": "Golem de Terra Pútrida" }
+            ],
+            "destino_vitoria": 15,
+            "destino_derrota": 99
         },
         {
             "id": 14,
@@ -105,14 +102,19 @@
             "id": 21,
             "texto": "Vocês seguem uma estratégia metódica. Plantam uma Semente de Luz na borda e a usam para purificar a primeira cicatriz adjacente. A luta contra os Espinhos Fragmentados é rápida. Vocês repetem o processo, limpando cicatriz por cicatriz, abrindo um caminho contíguo através da floresta.",
             "opcoes": [
-                 { 
-                    "tipo": "combate", "texto": "Limpar o primeiro bloco (Batalha 1 de 3).",
-                    "inimigos": {
-                        "inimigos_lista": ["espinho_fragmentado", "espinho_fragmentado"],
-                        "destino_vitoria": 23, "destino_derrota": 99
-                    }
-                }
+                 { "texto": "Limpar o primeiro bloco (Batalha 1 de 3).", "destino": 210 }
             ]
+        },
+        {
+            "id": 210,
+            "tipo": "combate",
+            "texto_pre_combate": "O primeiro bloco de corrupção se materializa para lutar!",
+            "inimigos": [
+                { "id_inimigo": "espinho_fragmentado", "nome_unico": "Espinho Fragmentado" },
+                { "id_inimigo": "espinho_fragmentado", "nome_unico": "Espinho Fragmentado" }
+            ],
+            "destino_vitoria": 23,
+            "destino_derrota": 99
         },
         {
             "id": 22,
@@ -125,27 +127,37 @@
             "id": 23,
             "texto": "O primeiro bloco está limpo. O espaço é pequeno, mas é um começo. Vocês avançam para o próximo bloco adjacente, continuando o processo de limpeza.",
             "opcoes": [
-                 { 
-                    "tipo": "combate", "texto": "Limpar o segundo bloco (Batalha 2 de 3).",
-                    "inimigos": {
-                        "inimigos_lista": ["espinho_fragmentado", "espinho_maior"],
-                        "destino_vitoria": 24, "destino_derrota": 99
-                    }
-                }
+                 { "texto": "Limpar o segundo bloco (Batalha 2 de 3).", "destino": 230 }
             ]
+        },
+        {
+            "id": 230,
+            "tipo": "combate",
+            "texto_pre_combate": "O segundo bloco se defende com mais força!",
+            "inimigos": [
+                { "id_inimigo": "espinho_fragmentado", "nome_unico": "Espinho Fragmentado" },
+                { "id_inimigo": "espinho_maior", "nome_unico": "Espinho Maior" }
+            ],
+            "destino_vitoria": 24,
+            "destino_derrota": 99
         },
         {
             "id": 24,
             "texto": "Mais um bloco purificado. O caminho de terra saudável está se tornando visível, conectando as árvores. A luz do sol começa a penetrar o dossel.",
             "opcoes": [
-                 { 
-                    "tipo": "combate", "texto": "Limpar o bloco final (Batalha 3 de 3).",
-                    "inimigos": {
-                        "inimigos_lista": ["espinho_maior", "espinho_maior"],
-                        "destino_vitoria": 25, "destino_derrota": 99
-                    }
-                }
+                 { "texto": "Limpar o bloco final (Batalha 3 de 3).", "destino": 240 }
             ]
+        },
+        {
+            "id": 240,
+            "tipo": "combate",
+            "texto_pre_combate": "O último bloco de corrupção do bosque se ergue para a batalha!",
+            "inimigos": [
+                { "id_inimigo": "espinho_maior", "nome_unico": "Espinho Maior" },
+                { "id_inimigo": "espinho_maior", "nome_unico": "Espinho Maior" }
+            ],
+            "destino_vitoria": 25,
+            "destino_derrota": 99
         },
         {
             "id": 25,
@@ -165,14 +177,18 @@
             "id": 31,
             "texto": "Ao se aproximarem da nascente, o cristal pulsa violentamente e projeta uma criatura colossal: o Guardião do Índice. Uma entidade feita de pura informação corrompida, sua forma muda constantemente. Derrotá-lo é a única forma de reparar a tabela de alocação.",
             "opcoes": [
-                { 
-                    "tipo": "combate", "texto": "Lutar contra o Guardião do Índice!",
-                    "inimigos": {
-                        "inimigos_lista": ["guardiao_indice"],
-                        "destino_vitoria": 40, "destino_derrota": 99
-                    }
-                }
+                { "texto": "Lutar contra o Guardião do Índice!", "destino": 310 }
             ]
+        },
+        {
+            "id": 310,
+            "tipo": "combate",
+            "texto_pre_combate": "O Guardião do Índice se materializa, sua forma mudando caoticamente, para proteger a corrupção!",
+            "inimigos": [
+                { "id_inimigo": "guardiao_indice", "nome_unico": "Guardião do Índice" }
+            ],
+            "destino_vitoria": 40,
+            "destino_derrota": 99
         },
         {
             "id": 40,
