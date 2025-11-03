@@ -92,5 +92,57 @@
             "imunidade_parcial": "A Anomalia é resistente ao elemento do seu ciclo atual."
         },
         "icone": "🌀"
+    },
+    "golem_putrido": {
+        "nome": "Golem Pútrido",
+        "hp_max": 45,
+        "iniciativa_bonus": 0,
+        "ataques": [
+            {
+                "nome": "Pancada Pútrida",
+                "chance_acerto": 5,
+                "dado_dano": "1d10+3"
+            }
+        ],
+        "icone": "🧟"
+    },
+    "espinho_fragmentado": {
+        "nome": "Espinho Fragmentado",
+        "hp_max": 10,
+        "iniciativa_bonus": 1,
+        "ataques": [
+            {
+                "nome": "Arranhão de Espinho",
+                "chance_acerto": 3,
+                "dado_dano": "1d4+2"
+            }
+        ],
+        "icone": "🌿"
+    },
+    "espinho_maior": {
+        "nome": "Espinho Maior",
+        "hp_max": 18,
+        "iniciativa_bonus": 1,
+        "ataques": [
+            {
+                "nome": "Perfuração de Cipó",
+                "chance_acerto": 4,
+                "dado_dano": "1d8+2"
+            }
+        ],
+        "icone": "🌳"
+    },
+    "guardiao_indice": {
+        "nome": "Guardião do Índice",
+        "hp_max": 60,
+        "iniciativa_bonus": 3,
+        "ataques": [
+            {
+                "nome": "Surto de Dados",
+                "chance_acerto": 6,
+                "dado_dano": "2d6+2"
+            }
+        ],
+        "icone": "💾"
     }
 }
