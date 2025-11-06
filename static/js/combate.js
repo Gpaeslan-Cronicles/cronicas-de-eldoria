@@ -1,4 +1,4 @@
-// static/js/combate.js (VERSÃO FINAL E CORRIGIDA)
+// static/js/combate.js (VERSÃO COM SELEÇÃO DE ALVO MÚLTIPLO)
 
 document.addEventListener('DOMContentLoaded', () => {
     // =====================================================================
@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const areaInimigos = document.getElementById('area-inimigos');
     const logCombate = document.getElementById('log-combate');
     
-    // --- NOVOS CONTAINERS DO RODAPÉ ---
     const acoesNormaisContainer = document.getElementById('acoes-normais-container');
     const acoesBonusContainer = document.getElementById('acoes-bonus-container');
     const encerrarTurnoContainer = document.getElementById('encerrar-turno-container');
@@ -26,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const rolagemCombateSpinner = document.getElementById('rolagem-combate-spinner');
     const rolagemCombateDetalhes = document.getElementById('rolagem-combate-detalhes');
     const rolagemCombateResultado = document.getElementById('rolagem-combate-resultado');
+    const botaoRolarManual = document.getElementById('botao-rolar-manual');
 
     let combatentes = [];
     let ordemTurno = [];
@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let combateFinalizado = false;
     let acao_usada = false;
     let acao_bonus_usada = false;
+    
+    // --- NOVO: Variável para guardar alvos selecionados ---
+    let alvosSelecionados = [];
 
     // =====================================================================
     // === 2. FUNÇÕES UTILITÁRIAS
@@ -81,54 +84,47 @@ document.addEventListener('DOMContentLoaded', () => {
         else { hpBarFill.classList.add('hp-high'); }
         if (combatente.hp_atual <= 0) { card.classList.add('derrotado'); }
     };
+
     const mostrarRolagemVisual = (titulo, atacante, expressao) => {
-    return new Promise(async (resolve) => {
-        const isPlayer = atacante.tipo === 'jogador';
-        const botaoRolar = document.getElementById('botao-rolar-manual');
-        const spinnerEl = rolagemCombateSpinner;
+        return new Promise(async (resolve) => {
+            const isPlayer = atacante.tipo === 'jogador';
+            
+            rolagemCombateTitulo.textContent = titulo;
+            rolagemCombateAtacante.textContent = `Por: ${atacante.nome || atacante.nome_unico}`;
+            rolagemCombateSpinner.textContent = '...';
+            rolagemCombateDetalhes.innerHTML = `(${expressao})`;
+            rolagemCombateResultado.classList.add('hidden');
+            botaoRolarManual.classList.add('hidden'); 
+            overlayRolagemCombate.classList.remove('hidden');
 
-        // 1. Prepara e exibe o overlay
-        rolagemCombateTitulo.textContent = titulo;
-        rolagemCombateAtacante.textContent = `Por: ${atacante.nome || atacante.nome_unico}`;
-        spinnerEl.textContent = '...';
-        rolagemCombateDetalhes.innerHTML = `(${expressao})`;
-        rolagemCombateResultado.classList.add('hidden');
-        botaoRolar.classList.add('hidden'); // Garante que o botão comece escondido
-        overlayRolagemCombate.classList.remove('hidden');
+            const executarAnimacao = () => {
+                return new Promise(async (resolveAnimacao) => {
+                    const animacaoInterval = setInterval(() => {
+                        rolagemCombateSpinner.textContent = Math.floor(Math.random() * 20) + 1;
+                    }, 80);
+                    await sleep(1500);
+                    clearInterval(animacaoInterval);
+                    resolveAnimacao();
+                });
+            };
 
-        // Função interna para a animação
-        const executarAnimacao = () => {
-            return new Promise(async (resolveAnimacao) => {
-                const animacaoInterval = setInterval(() => {
-                    spinnerEl.textContent = Math.floor(Math.random() * 20) + 1;
-                }, 80);
-                await sleep(1500);
-                clearInterval(animacaoInterval);
-                resolveAnimacao();
-            });
-        };
-
-        // 2. Lógica de rolagem
-        if (isPlayer) {
-            // Mostra o botão para o jogador e espera o clique
-            botaoRolar.classList.remove('hidden');
-            botaoRolar.onclick = async () => {
-                botaoRolar.classList.add('hidden');
+            if (isPlayer) {
+                botaoRolarManual.classList.remove('hidden');
+                botaoRolarManual.onclick = async () => {
+                    botaoRolarManual.classList.add('hidden');
+                    await executarAnimacao();
+                    const resultado = rolarDado(expressao).total;
+                    rolagemCombateSpinner.textContent = resultado;
+                    resolve(resultado); 
+                };
+            } else { 
                 await executarAnimacao();
                 const resultado = rolarDado(expressao).total;
-                spinnerEl.textContent = resultado;
-                resolve(resultado); // Devolve o resultado para o jogo continuar
-            };
-        } else { // Lógica automática para inimigos
-            await executarAnimacao();
-            const resultado = rolarDado(expressao).total;
-            spinnerEl.textContent = resultado;
-            
-            
-            resolve(resultado); 
-        }
-    });
-};
+                rolagemCombateSpinner.textContent = resultado;
+                resolve(resultado); 
+            }
+        });
+    };
 
     // =====================================================================
     // === 3. PREPARAÇÃO DO COMBATE
@@ -170,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // =====================================================================
-    // === 4. LÓGICA DE TURNO CORRIGIDA
+    // === 4. LÓGICA DE TURNO
     // =====================================================================
     const proximoTurno = async () => {
         if (!combateAtivo || combateFinalizado) return;
@@ -192,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
             acao_usada = false;
             acao_bonus_usada = false;
             log(`<strong>--- Turno de ${combatenteAtual.nome} ---</strong>`);
-            desenharInterfaceJogador(combatenteAtual); // Chamada inicial para desenhar a UI
+            desenharInterfaceJogador(combatenteAtual); 
         } else {
             acoesNormaisContainer.innerHTML = '';
             acoesBonusContainer.innerHTML = '';
@@ -205,6 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
         acoesNormaisContainer.innerHTML = '';
         acoesBonusContainer.innerHTML = '';
         encerrarTurnoContainer.innerHTML = '';
+        limparSelecaoDeAlvos(); // Limpa alvos caso o jogador encerre o turno sem atacar
         turnoAtualIndex = (turnoAtualIndex + 1) % ordemTurno.length;
         setTimeout(proximoTurno, 1000);
     };
@@ -213,7 +210,9 @@ document.addEventListener('DOMContentLoaded', () => {
         acoesNormaisContainer.innerHTML = '';
         acoesBonusContainer.innerHTML = '';
         encerrarTurnoContainer.innerHTML = '';
+        limparSelecaoDeAlvos(); // Garante que a seleção seja limpa ao redesenhar
 
+        // --- AÇÕES NORMAIS (HABILIDADES) ---
         if (!acao_usada) {
             (jogador.classe.habilidades || []).forEach(habilidade => {
                 const btn = document.createElement('button');
@@ -221,12 +220,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.textContent = habilidade.nome;
                 btn.onclick = () => {
                     acao_usada = true;
-                    escolherAlvo(jogador, habilidade);
+                    resolverHabilidade(jogador, habilidade);
                 };
                 acoesNormaisContainer.appendChild(btn);
             });
         }
         
+        // --- AÇÕES BÔNUS ---
         if (!acao_bonus_usada) {
             (jogador.classe.acoes_bonus || []).forEach(acao => {
                 const btn = document.createElement('button');
@@ -240,6 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // --- ENCERRAR TURNO ---
         const btnEncerrar = document.createElement('button');
         btnEncerrar.className = 'botao-escolha';
         btnEncerrar.textContent = 'Encerrar Turno';
@@ -261,124 +262,228 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // =====================================================================
-    // === 5. AÇÕES, AÇÕES BÔNUS E RESOLUÇÃO
+    // === 5. RESOLVEDORES DE HABILIDADES (ATAQUE, CURA, AOE)
     // =====================================================================
-    const escolherAlvo = async (atacante, habilidade, isCrit = false) => {
+
+    /**
+     * Função Mestre: Decide qual lógica de alvo usar.
+     */
+    async function resolverHabilidade(jogador, habilidade) {
+        const { alvos } = habilidade;
+
+        if (alvos === 'multiplos') {
+            // NOVO: Inicia o modo de seleção múltipla
+            iniciarSelecaoMultipla(jogador, habilidade);
+        } else if (alvos === 'unico') {
+            // Lógica antiga para alvo único
+            iniciarSelecaoUnica(jogador, habilidade);
+        } else {
+            // (Para futuras magias como cura em área em aliados)
+            log(`Habilidade ${habilidade.nome} não tem lógica de alvo definida.`);
+            desenharInterfaceJogador(jogador);
+        }
+    }
+
+    /**
+     * Lógica de Ação Bônus (Corrigida para bug do Mago).
+     */
+    async function resolverAcaoBonus(jogador, acaoId) {
+        switch(acaoId) {
+            case 'guerreiro_curar':
+                const cura = rolarDado('2d6').total;
+                jogador.hp_atual = Math.min(jogador.classe.hp_max, jogador.hp_atual + cura);
+                log(`⚔️ ${jogador.nome} recupera o fôlego e cura <strong>${cura}</strong> de vida!`);
+                atualizarHP(jogador);
+                break;
+            case 'guerreiro_ataque_extra':
+                log(`⚔️ ${jogador.nome} prepara um Ataque Rápido!`);
+                // Ataque extra usa a primeira habilidade (Ataque Poderoso)
+                iniciarSelecaoUnica(jogador, jogador.classe.habilidades[0]);
+                break;
+            case 'mago_escudo':
+                const escudo = rolarDado('2d10').total;
+                jogador.temp_hp = escudo;
+                log(`✨ ${jogador.nome} conjura um Escudo Arcano, ganhando <strong>${escudo}</strong> de HP temporário!`);
+                atualizarHP(jogador);
+                break;
+            case 'mago_feitico_extra':
+                log(`✨ ${jogador.nome} acelera sua magia! Escolha um feitiço.`);
+                acao_usada = false; // Devolve a Ação Normal.
+                break;
+            case 'ladino_ocultar':
+                jogador.status_effects.push({ nome: 'oculto', duracao: 2 });
+                log(`🏹 ${jogador.nome} se esconde nas sombras. O próximo ataque contra ele irá errar!`);
+                break;
+            case 'ladino_apunhalar':
+                log(`🏹 ${jogador.nome} prepara uma Apunhalada Crítica!`);
+                // Apunhalar usa a primeira habilidade (Ataque Furtivo) com bônus
+                iniciarSelecaoUnica(jogador, jogador.classe.habilidades[0], true);
+                break;
+        }
+        // Redesenha a UI após a ação bônus
+        desenharInterfaceJogador(jogador);
+    }
+
+    /**
+     * Limpa a seleção de alvos e remove os listeners
+     */
+    const limparSelecaoDeAlvos = () => {
+        alvosSelecionados = [];
+        document.querySelectorAll('.alvo-potencial').forEach(card => {
+            card.classList.remove('alvo-potencial', 'alvo-selecionado');
+            card.onclick = null; // Remove o listener de clique
+        });
+    };
+
+    /**
+     * Lógica para Seleção de Alvo ÚNICO.
+     */
+    const iniciarSelecaoUnica = async (atacante, habilidade, isCrit = false) => {
         acoesNormaisContainer.innerHTML = '';
         acoesBonusContainer.innerHTML = '';
-        encerrarTurnoContainer.innerHTML = `<p style="color: white; font-family: 'Cinzel', serif;">Clique no alvo para usar ${habilidade.nome}...</p>`;
+        encerrarTurnoContainer.innerHTML = `<p style="color: white; font-family: 'Cinzel', serif;">Clique no alvo para ${habilidade.nome}...</p>`;
         
+        limparSelecaoDeAlvos(); // Garante que tudo esteja limpo
+
         const alvosDisponiveis = document.querySelectorAll('.inimigo:not(.derrotado)');
         alvosDisponiveis.forEach(alvoEl => {
             alvoEl.classList.add('alvo-potencial');
             alvoEl.onclick = async () => {
-                alvosDisponiveis.forEach(el => { el.classList.remove('alvo-potencial'); el.onclick = null; });
+                limparSelecaoDeAlvos(); // Limpa após o clique
                 const idAlvo = alvoEl.id;
                 const alvo = combatentes.find(c => c.id_html === idAlvo);
                 await resolverAtaque(atacante, alvo, habilidade, isCrit);
-                desenharInterfaceJogador(atacante);
+                desenharInterfaceJogador(atacante); // Redesenha a UI
             };
         });
     };
 
-    async function resolverAcaoBonus(jogador, acaoId) {
-        switch(acaoId) {
-            case 'guerreiro_curar':
-                const cura = rolarDado('1d8').total;
-                jogador.hp_atual = Math.min(jogador.classe.hp_max, jogador.hp_atual + cura);
-                log(`⚔️ ${jogador.nome} recupera o fôlego e cura <strong>${cura}</strong> de vida!`);
-                atualizarHP(jogador);
-                desenharInterfaceJogador(jogador);
-                break;
-            case 'guerreiro_ataque_extra':
-                log(`⚔️ ${jogador.nome} prepara um Ataque Rápido!`);
-                escolherAlvo(jogador, jogador.classe.habilidades[0]);
-                break;
-            case 'mago_escudo':
-                const escudo = rolarDado('1d6').total;
-                jogador.temp_hp = escudo;
-                log(`✨ ${jogador.nome} conjura um Escudo Arcano, ganhando <strong>${escudo}</strong> de HP temporário!`);
-                atualizarHP(jogador);
-                desenharInterfaceJogador(jogador);
-                break;
-            case 'mago_feitico_extra':
-    log(`✨ ${jogador.nome} acelera sua magia! Escolha um feitiço.`);
-    acao_usada = false; // <-- A CORREÇÃO MÁGICA!
-    desenharInterfaceJogador(jogador); // Agora vai funcionar!
-    break;
-            case 'ladino_ocultar':
-                jogador.status_effects.push({ nome: 'oculto', duracao: 2 });
-                log(`🏹 ${jogador.nome} se esconde nas sombras. O próximo ataque contra ele irá errar!`);
-                desenharInterfaceJogador(jogador);
-                break;
-            case 'ladino_apunhalar':
-                log(`🏹 ${jogador.nome} prepara uma Apunhalada Crítica!`);
-                escolherAlvo(jogador, jogador.classe.habilidades[0], true);
-                break;
+    /**
+     * NOVO: Lógica para Seleção de Alvos MÚLTIPLOS.
+     */
+    const iniciarSelecaoMultipla = (jogador, habilidade) => {
+        acoesNormaisContainer.innerHTML = '';
+        acoesBonusContainer.innerHTML = '';
+        encerrarTurnoContainer.innerHTML = ''; // Limpa o botão "Encerrar Turno"
+
+        limparSelecaoDeAlvos();
+        log(`🔥 ${jogador.nome} prepara ${habilidade.nome}. Selecione os alvos.`);
+
+        // Cria o botão de confirmação
+        const btnConfirmar = document.createElement('button');
+        btnConfirmar.className = 'botao-escolha';
+        btnConfirmar.textContent = 'Confirmar Alvos (0)';
+        btnConfirmar.disabled = true;
+        btnConfirmar.onclick = async () => {
+            // Pega os objetos de combatente com base nos IDs selecionados
+            const alvosObjetos = alvosSelecionados.map(id => combatentes.find(c => c.id_html === id));
+            await resolverAtaqueMultiplo(jogador, habilidade, alvosObjetos);
+            desenharInterfaceJogador(jogador); // Redesenha a UI normal
+        };
+        encerrarTurnoContainer.appendChild(btnConfirmar);
+
+        // Adiciona listeners aos inimigos
+        const alvosDisponiveis = document.querySelectorAll('.inimigo:not(.derrotado)');
+        alvosDisponiveis.forEach(alvoEl => {
+            alvoEl.classList.add('alvo-potencial');
+            
+            alvoEl.onclick = () => {
+                const idAlvo = alvoEl.id;
+                if (alvosSelecionados.includes(idAlvo)) {
+                    // Remove da seleção
+                    alvosSelecionados = alvosSelecionados.filter(id => id !== idAlvo);
+                    alvoEl.classList.remove('alvo-selecionado');
+                } else {
+                    // Adiciona à seleção
+                    alvosSelecionados.push(idAlvo);
+                    alvoEl.classList.add('alvo-selecionado');
+                }
+                
+                // Atualiza o botão
+                btnConfirmar.textContent = `Confirmar Alvos (${alvosSelecionados.length})`;
+                btnConfirmar.disabled = alvosSelecionados.length === 0;
+            };
+        });
+    };
+
+    /**
+     * NOVO: Lógica de Ataque Múltiplo (agora recebe os alvos)
+     */
+    async function resolverAtaqueMultiplo(jogador, habilidade, alvos) {
+        log(`🔥 ${jogador.nome} conjura ${habilidade.nome} sobre ${alvos.length} alvos!`);
+        
+        for (const alvo of alvos) {
+            // Reutiliza a função de ataque principal para cada alvo
+            await resolverAtaque(jogador, alvo, habilidade);
+            await sleep(500); // Pausa entre os ataques
+            if (checarFimDeCombate()) return; // Para o ataque se o combate acabou
         }
     }
-    
+
+
+    /**
+     * Lógica Principal de Ataque (Usada por jogadores e inimigos).
+     */
     const resolverAtaque = async (atacante, alvo, habilidade, isCrit = false) => {
-    const nomeAtacante = atacante.nome || atacante.nome_unico;
+        const nomeAtacante = atacante.nome || atacante.nome_unico;
 
-    // Checa status (Ladino Oculto)
-    if (alvo.status_effects.some(ef => ef.nome === 'oculto')) {
-        log(`💨 ${alvo.nome} está oculto! O ataque de ${nomeAtacante} erra automaticamente!`);
-        alvo.status_effects = alvo.status_effects.filter(ef => ef.nome !== 'oculto');
-        await sleep(1500);
-        return;
-    }
-
-    const nomeAtaque = habilidade.nome;
-    const dadoDano = habilidade.dado_dano;
-    const acertoBonus = (atacante.tipo === 'jogador') ? 5 : (habilidade.chance_acerto || 3);
-    log(`${nomeAtacante} usa ${nomeAtaque} contra ${alvo.nome || alvo.nome_unico}.`);
-    
-    // --- ROLAGEM DE ACERTO ---
-    const rolagemAcerto = await mostrarRolagemVisual("Rolagem de Acerto", atacante, `1d20+${acertoBonus}`);
-    const armaduraAlvo = 12;
-    rolagemCombateDetalhes.innerHTML += ` (vs Armadura ${armaduraAlvo})`;
-    await sleep(1000);
-
-    if (rolagemAcerto >= armaduraAlvo || isCrit) {
-        rolagemCombateResultado.textContent = isCrit ? "ACERTO CRÍTICO!" : "ACERTO!";
-        rolagemCombateResultado.className = 'sucesso';
-        rolagemCombateResultado.classList.remove('hidden');
-        await sleep(1500);
-
-        // --- ROLAGEM DE DANO ---
-        let danoCausado = await mostrarRolagemVisual("Rolagem de Dano", atacante, dadoDano);
-        if (isCrit) {
-            log(`💥 **DANO CRÍTICO!** Rolando dano extra...`);
-            await sleep(1000);
-            // Para críticos, rolamos o dano uma segunda vez
-            const danoExtra = await mostrarRolagemVisual("Dano Crítico Extra", atacante, dadoDano);
-            danoCausado += danoExtra;
+        // Checa status (Ladino Oculto)
+        if (alvo.status_effects.some(ef => ef.nome === 'oculto')) {
+            log(`💨 ${alvo.nome} está oculto! O ataque de ${nomeAtacante} erra automaticamente!`);
+            alvo.status_effects = alvo.status_effects.filter(ef => ef.nome !== 'oculto');
+            await sleep(1500);
+            return;
         }
 
-        // Aplica o dano
-        let danoRestante = danoCausado;
-        if (alvo.temp_hp > 0) {
-            const danoNoEscudo = Math.min(alvo.temp_hp, danoRestante);
-            alvo.temp_hp -= danoNoEscudo;
-            danoRestante -= danoNoEscudo;
-            log(`O escudo absorve <strong>${danoNoEscudo}</strong> de dano!`);
-        }
-        alvo.hp_atual = Math.max(0, alvo.hp_atual - danoRestante);
+        const nomeAtaque = habilidade.nome;
+        const dadoDano = habilidade.dado_dano;
+        const acertoBonus = (atacante.tipo === 'jogador') ? 5 : (habilidade.chance_acerto || 3);
+        log(`${nomeAtacante} usa ${nomeAtaque} contra ${alvo.nome || alvo.nome_unico}.`);
+        
+        // --- ROLAGEM DE ACERTO ---
+        const rolagemAcerto = await mostrarRolagemVisual("Rolagem de Acerto", atacante, `1d20+${acertoBonus}`);
+        const armaduraAlvo = 12;
+        rolagemCombateDetalhes.innerHTML += ` (vs Armadura ${armaduraAlvo})`;
+        await sleep(1000);
 
-        rolagemCombateResultado.textContent = `CAUSOU ${danoCausado} DE DANO!`;
-        log(`<span class="acerto">${nomeAtacante} ACERTOU!</span> Causou <strong>${danoCausado}</strong> de dano total em ${alvo.nome || alvo.nome_unico}.`);
-        atualizarHP(alvo);
-        if (alvo.hp_atual <= 0) { log(`<strong>${alvo.nome || alvo.nome_unico} foi derrotado!</strong>`); }
-    } else {
-        rolagemCombateResultado.textContent = "ERROU!";
-        rolagemCombateResultado.className = 'falha';
-        rolagemCombateResultado.classList.remove('hidden');
-        log(`<span class="falha">${nomeAtacante} ERROU!</span>`);
-    }
-    await sleep(2000);
-    overlayRolagemCombate.classList.add('hidden');
-};
+        if (rolagemAcerto >= armaduraAlvo || isCrit) {
+            rolagemCombateResultado.textContent = isCrit ? "ACERTO CRÍTICO!" : "ACERTO!";
+            rolagemCombateResultado.className = 'sucesso';
+            rolagemCombateResultado.classList.remove('hidden');
+            await sleep(1500);
+
+            // --- ROLAGEM DE DANO ---
+            let danoCausado = await mostrarRolagemVisual("Rolagem de Dano", atacante, dadoDano);
+            if (isCrit) {
+                log(`💥 **DANO CRÍTICO!** Rolando dano extra...`);
+                await sleep(1000);
+                const danoExtra = await mostrarRolagemVisual("Dano Crítico Extra", atacante, dadoDano);
+                danoCausado += danoExtra;
+            }
+
+            // Aplica o dano
+            let danoRestante = danoCausado;
+            if (alvo.temp_hp > 0) {
+                const danoNoEscudo = Math.min(alvo.temp_hp, danoRestante);
+                alvo.temp_hp -= danoNoEscudo;
+                danoRestante -= danoNoEscudo;
+                log(`O escudo absorve <strong>${danoNoEscudo}</strong> de dano!`);
+            }
+            alvo.hp_atual = Math.max(0, alvo.hp_atual - danoRestante);
+
+            rolagemCombateResultado.textContent = `CAUSOU ${danoCausado} DE DANO!`;
+            log(`<span class="acerto">${nomeAtacante} ACERTOU!</span> Causou <strong>${danoCausado}</strong> de dano total em ${alvo.nome || alvo.nome_unico}.`);
+            atualizarHP(alvo);
+            if (alvo.hp_atual <= 0) { log(`<strong>${alvo.nome || alvo.nome_unico} foi derrotado!</strong>`); }
+        } else {
+            rolagemCombateResultado.textContent = "ERROU!";
+            rolagemCombateResultado.className = 'falha';
+            rolagemCombateResultado.classList.remove('hidden');
+            log(`<span class="falha">${nomeAtacante} ERROU!</span>`);
+        }
+        await sleep(2000);
+        overlayRolagemCombate.classList.add('hidden');
+    };
 
     // =====================================================================
     // === 6. FIM DO COMBATE
@@ -388,11 +493,16 @@ document.addEventListener('DOMContentLoaded', () => {
         combateFinalizado = true;
         combateAtivo = false;
         const urlDestino = (status === 'vitoria') ? gameData.dados_combate.destino_vitoria : gameData.dados_combate.destino_derrota;
+        
+        // Prepara a party para salvar
         const partyFinal = gameData.party.map(personagemOriginal => {
             const combatenteCorrespondente = combatentes.find(c => c.nome === personagemOriginal.nome);
-            if (combatenteCorrespondente) { return { ...personagemOriginal, hp_atual: combatenteCorrespondente.hp_atual, temp_hp: 0, status_effects: [] }; }
+            if (combatenteCorrespondente) { 
+                return { ...personagemOriginal, hp_atual: combatenteCorrespondente.hp_atual }; 
+            }
             return personagemOriginal;
         });
+        
         try {
             const response = await fetch('/atualizar-party', {
                 method: 'POST',
@@ -408,6 +518,7 @@ document.addEventListener('DOMContentLoaded', () => {
             log('ERRO: Não foi possível salvar seu progresso. Por favor, recarregue a página.');
         }
     };
+    
     const checarFimDeCombate = () => {
         if (!combateAtivo) return false;
         const jogadoresVivos = combatentes.filter(c => c.tipo === 'jogador' && c.hp_atual > 0);

@@ -14,20 +14,20 @@ app.secret_key = 'sua-chave-secreta-muito-dificil-de-adivinhar-mude-isso'
 # Definição das propriedades de cada classe
 CLASSES = {
     'guerreiro': {
-        'nome_classe': 'Guerreiro', 'hp_max': 55,
+        'nome_classe': 'Guerreiro', 'hp_max': 60,
         'habilidades': [
             {'id': 'ataque_poderoso', 'nome': 'Ataque Poderoso', 'dado_dano': '1d10+3', 'tipo': 'ataque', 'alvos': 'unico'}
         ],
         'acoes_bonus': [
-            {'id': 'guerreiro_curar', 'nome': 'Recuperar Fôlego (Cura 1d8)'},
+            {'id': 'guerreiro_curar', 'nome': 'Recuperar Fôlego (Cura 2d6)'},
             {'id': 'guerreiro_ataque_extra', 'nome': 'Ataque Rápido'}
         ]
     },
     'mago': {
-        'nome_classe': 'Mago', 'hp_max': 30,
+        'nome_classe': 'Mago', 'hp_max': 35,
         'habilidades': [
-            {'id': 'bola_de_fogo', 'nome': 'Bola de Fogo', 'dado_dano': '2d6', 'tipo': 'magia', 'alvos': 'multiplos'},
-            {'id': 'raio_de_gelo', 'nome': 'Raio de Gelo', 'dado_dano': '1d8', 'tipo': 'magia', 'alvos': 'unico'}
+            {'id': 'bola_de_fogo', 'nome': 'Bola de Fogo', 'dado_dano': '4d6', 'tipo': 'magia', 'alvos': 'multiplos'},
+            {'id': 'raio_de_gelo', 'nome': 'Raio de Gelo', 'dado_dano': '2d8', 'tipo': 'magia', 'alvos': 'unico'}
         ],
         'acoes_bonus': [
             {'id': 'mago_escudo', 'nome': 'Escudo Arcano (HP Temp)'},
@@ -36,7 +36,7 @@ CLASSES = {
         'slots_magia': 4
     },
     'ladino': {
-        'nome_classe': 'Ladino', 'hp_max': 40,
+        'nome_classe': 'Ladino', 'hp_max': 45,
         'habilidades': [
             {'id': 'ataque_furtivo', 'nome': 'Ataque Furtivo', 'dado_dano': '1d6+4', 'tipo': 'ataque', 'alvos': 'unico', 'condicao': 'alvo_distraido'}
         ],
