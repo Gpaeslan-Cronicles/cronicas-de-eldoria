@@ -288,6 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * Lógica de Ação Bônus (Corrigida para bug do Mago).
      */
     async function resolverAcaoBonus(jogador, acaoId) {
+        let redesenharUIImediatamente = true;
         switch(acaoId) {
             case 'guerreiro_curar':
                 const cura = rolarDado('2d6').total;
@@ -299,6 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 log(`⚔️ ${jogador.nome} prepara um Ataque Rápido!`);
                 // Ataque extra usa a primeira habilidade (Ataque Poderoso)
                 iniciarSelecaoUnica(jogador, jogador.classe.habilidades[0]);
+                redesenharUIImediatamente = false;
                 break;
             case 'mago_escudo':
                 const escudo = rolarDado('2d10').total;
@@ -318,11 +320,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 log(`🏹 ${jogador.nome} prepara uma Apunhalada Crítica!`);
                 // Apunhalar usa a primeira habilidade (Ataque Furtivo) com bônus
                 iniciarSelecaoUnica(jogador, jogador.classe.habilidades[0], true);
+                redesenharUIImediatamente = false;
                 break;
         }
-        // Redesenha a UI após a ação bônus
+        if (redesenharUIImediatamente) {
         desenharInterfaceJogador(jogador);
-    }
+    }}
 
     /**
      * Limpa a seleção de alvos e remove os listeners
