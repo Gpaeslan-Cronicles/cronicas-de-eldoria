@@ -7,10 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Uncial+Antiqua&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/estilo.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
 </head>
-<body class="body-menu-v2">
+<body class="body-dossier">
 
     <div class="scroll-container">
         <div class="scroll-content">
@@ -19,7 +19,7 @@
             </header>
             
             <div class="premissa-texto">
-                <p>{{ premissa_texto }}</p>
+                <p>{{ premissa_texto | safe }}</p>
             </div>
 
             <nav class="scroll-nav">
