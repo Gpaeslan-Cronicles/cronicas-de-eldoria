@@ -22,16 +22,16 @@ body {
 .container-livro {
     width: 90vw;
     max-width: 800px;
-    height: 60vh;
-    max-height: 600px;
-    background-color: rgba(245, 235, 215, 0.9); /* Cor de pergaminho semi-transparente */
-    border: 15px solid #4a2c2a; /* Borda grossa como uma capa de livro */
+    height: auto; /* Remove a altura fixa */
+    max-height: 80vh; /* Define uma altura MÁXIMA (80% da tela) */
+    min-height: 400px; /* Garante uma altura mínima */
+    background-color: rgba(245, 235, 215, 0.9);
+    border: 15px solid #4a2c2a;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 40px;
+    padding: 20px 30px; 
     position: relative;
 }
 
@@ -148,14 +148,22 @@ body {
 /* Adicione este código ao final de static/css/estilo.css */
 
 .pagina-interativa {
-    flex-grow: 1; /* Faz a área de texto ocupar o espaço disponível */
-    font-size: 1.2rem;
-    line-height: 1.8;
-    text-align: justify;
+    font-size: 1.1rem; /* Levemente menor para caber mais */
+    line-height: 1.7; /* Espaçamento de linha mais agradável */
     
-    /* --- CORREÇÃO ADICIONADA AQUI --- */
-    overflow-y: auto; /* Cria uma barra de rolagem vertical SE o texto for muito longo */
-    padding-right: 15px; /* Adiciona um espaço para a barra de rolagem não cobrir o texto */
+    /* --- CORREÇÃO DE TEXTO ENXUTO --- */
+    text-align: left; /* Trocado de 'justify' */
+    
+    /* --- CORREÇÃO DE TRANSBORDAMENTO --- */
+    overflow-y: auto; /* ADICIONA SCROLL INTERNO */
+    padding-right: 15px; /* Espaço para a barra de rolagem */
+    
+    /* --- CORREÇÃO DE FLEX --- */
+    flex-grow: 1; /* Pede para crescer */
+    flex-shrink: 1; /* PERMITE ENCOLHER (importante!) */
+    margin-bottom: 20px; /* Espaço antes dos botões */
+    
+    animation: fadeIn 0.8s ease-in-out;
 }
 
 .opcoes-escolha {
@@ -164,7 +172,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* Espaço entre os botões */
+    gap: 15px;
+    
+    /* --- CORREÇÃO DE LAYOUT E ROLAGEM --- */
+    flex-grow: 0;   /* Não deve crescer */
+    flex-shrink: 0; /* Não deve encolher */
+    overflow-y: auto; /* Permite que os BOTÕES rolem se houver muitos */
+    max-height: 40%; /* Limita a altura da área de opções */
 }
 
 .botao-escolha {
@@ -1393,7 +1407,9 @@ body {
 
     /* Ajustes Gerais para Telas de Menu/Criação */
     .body-menu-v2, .body-dossier {
-        padding: 20px 10px; /* Diminui o espaçamento geral */
+        align-items: center; 
+        padding: 20px 10px;
+        padding-bottom: 150px; /* Diminui o espaçamento geral */
     }
     .scroll-content, .creation-dossier {
         padding: 40px 20px; /* Diminui o preenchimento interno */
@@ -1459,6 +1475,29 @@ body {
     padding: 40px 15px; /* Adiciona um respiro vertical e horizontal */
     overflow-y: auto !important; /* Força a rolagem vertical */
 }
+
+.container-livro {
+        width: 95vw; /* Ocupa mais a tela */
+        padding: 15px;
+        min-height: 0; /* Remove a altura mínima no mobile */
+        height: 75vh;  /* Ocupa 75% da altura da tela */
+        max-height: 80vh; /* Limite máximo */
+    }
+
+    .pagina-interativa {
+        font-size: 1rem; /* Texto um pouco menor no mobile */
+        line-height: 1.6;
+        padding-right: 10px; /* Menos padding para a barra de rolagem */
+    }
+
+    .opcoes-escolha {
+        gap: 10px; /* Menos espaço entre os botões */
+    }
+    
+    .botao-escolha {
+        font-size: 1rem;
+        padding: 12px 15px; /* Botões um pouco menores */
+    }
 
 /* ===================================================================== */
 /* === CORREÇÃO FINAL DE SCROLL NO COMBATE PARA MOBILE === */
