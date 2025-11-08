@@ -9,7 +9,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     background-color: #1a1a1a;
     /* Imagem de fundo para dar um toque rústico */
     background-image: url('../images/pergaminho.jpg'); /* Crie a pasta e adicione a imagem! */
@@ -148,8 +147,8 @@ body {
 /* Adicione este código ao final de static/css/estilo.css */
 
 .pagina-interativa {
-    font-size: 1.1rem; /* Levemente menor para caber mais */
-    line-height: 1.7; /* Espaçamento de linha mais agradável */
+    font-size: 1.3rem; /* Levemente menor para caber mais */
+    line-height: 1.5; /* Espaçamento de linha mais agradável */
     
     /* --- CORREÇÃO DE TEXTO ENXUTO --- */
     text-align: left; /* Trocado de 'justify' */
@@ -1469,18 +1468,22 @@ body {
 .body-dossier {
     display: flex;
     justify-content: center;
-    /* Alinha o conteúdo no topo, permitindo que a página cresça para baixo */
-    align-items: flex-start;
+    
+    /* --- CORREÇÃO DO BUG --- */
+    /* Trocamos 'center' por 'flex-start'. Isso alinha o livro no topo. */
+    align-items: flex-start; 
+    
+    /* Adicionamos um padding-top explícito para não colar no topo */
+    padding: 60px 15px 150px 15px; 
+    
+    overflow-y: auto; 
     min-height: 100vh;
-    padding: 40px 15px; /* Adiciona um respiro vertical e horizontal */
-    overflow-y: auto !important; /* Força a rolagem vertical */
 }
 
 .container-livro {
         width: 95vw; /* Ocupa mais a tela */
         padding: 15px;
         min-height: 0; /* Remove a altura mínima no mobile */
-        height: 75vh;  /* Ocupa 75% da altura da tela */
         max-height: 80vh; /* Limite máximo */
     }
 
