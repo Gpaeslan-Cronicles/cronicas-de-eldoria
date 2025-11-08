@@ -291,7 +291,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let redesenharUIImediatamente = true;
         switch(acaoId) {
             case 'guerreiro_curar':
-                const cura = rolarDado('2d6').total;
+                const acaoCura = jogador.classe.acoes_bonus.find(a => a.id === 'guerreiro_curar');
+                const dadoCura = acaoCura.dado_cura || '2d6'; 
+                const cura = rolarDado(dadoCura).total;
                 jogador.hp_atual = Math.min(jogador.classe.hp_max, jogador.hp_atual + cura);
                 log(`⚔️ ${jogador.nome} recupera o fôlego e cura <strong>${cura}</strong> de vida!`);
                 atualizarHP(jogador);
